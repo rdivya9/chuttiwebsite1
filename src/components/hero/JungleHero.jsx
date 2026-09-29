@@ -10,7 +10,7 @@ import {
 } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { MessageCircle, Star, ChevronDown, Hand } from 'lucide-react';
+import { MessageCircle, Star, ChevronDown } from 'lucide-react';
 import IllustrationImage from '@/components/ui/IllustrationImage';
 import TappableCharacter from '@/components/characters/TappableCharacter';
 import { useBooking } from '@/components/booking/BookingProvider';
@@ -40,18 +40,20 @@ function SettledScene({ children }) {
           <IllustrationImage name="hero-canopy-back" alt="" className="w-full h-full object-cover object-bottom hidden md:block" />
           <IllustrationImage name="hero-canopy-back-mobile" alt="" className="w-full h-full object-cover object-bottom md:hidden" />
         </div>
-        <div className="absolute bottom-0 left-0 w-1/3 h-3/5">
-          <IllustrationImage name="hero-foliage-mid-left" alt="" className="w-full h-full object-contain object-bottom-left" />
+        <div className="absolute -top-16 bottom-0 left-0 w-[42%]">
+          <IllustrationImage name="hero-foliage-mid-left" alt="" className="w-full h-full object-contain object-bottom-left hidden md:block" />
+          <IllustrationImage name="hero-foliage-mid-left-mobile" alt="" className="w-full h-full object-contain object-bottom-left md:hidden" />
         </div>
-        <div className="absolute bottom-0 right-0 w-1/3 h-3/5">
-          <IllustrationImage name="hero-foliage-mid-right" alt="" className="w-full h-full object-contain object-bottom-right" />
+        <div className="absolute -top-16 bottom-0 right-0 w-[42%]">
+          <IllustrationImage name="hero-foliage-mid-right" alt="" className="w-full h-full object-contain object-bottom-right hidden md:block" />
+          <IllustrationImage name="hero-foliage-mid-right-mobile" alt="" className="w-full h-full object-contain object-bottom-right md:hidden" />
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-1/4">
           <IllustrationImage name="hero-ground-track" alt="" className="w-full h-full object-cover object-bottom hidden md:block" />
           <IllustrationImage name="hero-ground-track-mobile" alt="" className="w-full h-full object-cover object-bottom md:hidden" />
         </div>
         {/* Train in place */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/4 w-[60%] md:w-[55%]">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/4 w-[80%] md:w-[72%]">
           <IllustrationImage name="train-engine" alt="" className="w-full h-auto" />
         </div>
         {/* Giraffe up */}
@@ -59,7 +61,7 @@ function SettledScene({ children }) {
           <IllustrationImage name="hero-giraffe-head" alt="" className="w-full h-auto" />
         </div>
         {/* Bird perched */}
-        <div className="absolute top-1/3 right-1/4 w-24 md:w-36">
+        <div className="absolute top-[32%] left-[8%] w-24 md:w-36 scale-x-[-1]">
           <IllustrationImage name="hero-bird-perched" alt="" className="w-full h-auto" />
         </div>
         {/* Curtain open — small remnants at edges */}
@@ -86,11 +88,14 @@ function HeroContentCard({ openBooking }) {
         'relative z-10 md:absolute md:top-1/2 md:-translate-y-1/2 md:left-10 lg:left-16',
         // Mobile: top of viewport below header
         'w-full md:max-w-[44%] lg:max-w-[40%]',
-        // Card style
-        'bg-morning-white/88 backdrop-blur-sm rounded-card shadow-modal p-6 md:p-8',
+        // Billboard style — solid board with jungle-wood frame
+        'bg-morning-white rounded-2xl p-6 md:p-8',
+        'border-[5px] border-[#7C4D2A] shadow-2xl',
         'mx-5 md:mx-0 mt-4 md:mt-0',
       ].join(' ')}
     >
+      {/* Wooden top rail */}
+      <div className="absolute -top-3 left-4 right-4 h-3 bg-[#7C4D2A] rounded-t-sm" aria-hidden="true" />
       {/* Doctor chip */}
       <div className="flex items-center gap-2.5 mb-4">
         <Image
@@ -161,7 +166,6 @@ function AnimatedHero({ prefersReducedMotion }) {
   const { openBooking } = useBooking();
   const sectionRef       = useRef(null);
   const [showScrollHint, setShowScrollHint] = useState(false);
-  const [showTapHint,    setShowTapHint]    = useState(false);
   const [blinkActive,    setBlinkActive]    = useState(false);
   const [steamPuffs,     setSteamPuffs]     = useState([]);
   const [wingUp,         setWingUp]         = useState(true);
@@ -170,7 +174,8 @@ function AnimatedHero({ prefersReducedMotion }) {
   const blinkArmed    = useRef(true);
   const monkeyArmed   = useRef(true);
   const [monkeyDown,  setMonkeyDown]  = useState(false);
-  const steamArmed    = useRef([true, true, true]);
+  const steamArmed    = useRef([true, true, true, true, true]);
+  const pRef          = useRef(0);
 
   // ── Scroll progress ────────────────────────────────────────────────────
   const { scrollYProgress } = useScroll({
@@ -185,12 +190,16 @@ function AnimatedHero({ prefersReducedMotion }) {
     // Hide once scrolling starts
     if (latest > 0.03) setShowScrollHint(false);
 
+    pRef.current = latest;
+
     // Re-arm triggers when scrolling back up
     if (latest < 0.59) blinkArmed.current   = true;
     if (latest < 0.75) monkeyArmed.current  = true;
     if (latest < 0.57) steamArmed.current[0] = true;
-    if (latest < 0.65) steamArmed.current[1] = true;
-    if (latest < 0.73) steamArmed.current[2] = true;
+    if (latest < 0.62) steamArmed.current[1] = true;
+    if (latest < 0.67) steamArmed.current[2] = true;
+    if (latest < 0.72) steamArmed.current[3] = true;
+    if (latest < 0.77) steamArmed.current[4] = true;
 
     // Giraffe blink at p ≈ 0.64
     if (latest >= 0.64 && blinkArmed.current) {
@@ -199,14 +208,14 @@ function AnimatedHero({ prefersReducedMotion }) {
       setTimeout(() => setBlinkActive(false), 160);
     }
 
-    // Steam puffs at p 0.62, 0.70, 0.78
-    const steamThresholds = [0.62, 0.70, 0.78];
+    // Steam puffs at p 0.60, 0.65, 0.70, 0.75, 0.80
+    const steamThresholds = [0.60, 0.65, 0.70, 0.75, 0.80];
     steamThresholds.forEach((t, i) => {
       if (latest >= t && steamArmed.current[i]) {
         steamArmed.current[i] = false;
         const id = Date.now() + i;
         setSteamPuffs(prev => [...prev, id]);
-        setTimeout(() => setSteamPuffs(prev => prev.filter(s => s !== id)), 900);
+        setTimeout(() => setSteamPuffs(prev => prev.filter(s => s !== id)), 1000);
       }
     });
 
@@ -216,15 +225,24 @@ function AnimatedHero({ prefersReducedMotion }) {
       setMonkeyDown(true);
     }
 
-    // Tap hint at p ≈ 0.88
-    if (latest >= 0.88) setShowTapHint(true);
-    else                setShowTapHint(false);
   });
 
   // ── Scroll hint: appears after 1.5s idle ──────────────────────────────
   useEffect(() => {
     const t = setTimeout(() => setShowScrollHint(true), 1500);
     return () => clearTimeout(t);
+  }, []);
+
+  // ── Idle steam: continuous puffs once train is settled ────────────────
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (pRef.current >= 0.86) {
+        const id = Date.now();
+        setSteamPuffs(prev => [...prev, id]);
+        setTimeout(() => setSteamPuffs(prev => prev.filter(s => s !== id)), 1000);
+      }
+    }, 1800);
+    return () => clearInterval(interval);
   }, []);
 
   // ── Bird wing flap (time-based) ───────────────────────────────────────
@@ -262,14 +280,17 @@ function AnimatedHero({ prefersReducedMotion }) {
   const wheelRot  = useTransform(trainDist, d => (d / WHEEL_CIRC) * 360);
 
   // Bird arc
-  const birdX     = useTransform(p, [0.12, 0.60], ['105vw', '-15vw']);
-  const birdY     = useTransform(p, [0.12, 0.30, 0.50, 0.60], ['8vh', '22vh', '30vh', '32vh']);
-  const birdRot   = useTransform(p, [0.12, 0.60], [-8, 4]);
-  const birdOp    = useTransform(p, [0.12, 0.16, 0.54, 0.60], [0, 1, 1, 0]);
+  const birdX     = useTransform(p, [0.12, 0.64], ['105vw', '-83vw']);
+  const birdY     = useTransform(p, [0.12, 0.30, 0.54, 0.64], ['8vh', '22vh', '30vh', '32vh']);
+  const birdRot   = useTransform(p, [0.12, 0.64], [-8, 2]);
+  const birdOp    = useTransform(p, [0.12, 0.16, 0.60, 0.64], [0, 1, 1, 0]);
 
   // Monkey
   const monkeyY   = useTransform(p, [0.80, 0.92], [-120, 0]);
   const monkeyRot = useTransform(p, [0.80, 0.92], [-10, 0]);
+
+  // Billboard — rises from below as the scene builds
+  const boardY    = useTransform(p, [0.58, 0.94], ['72vh', '0vh']);
 
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
@@ -312,11 +333,13 @@ function AnimatedHero({ prefersReducedMotion }) {
           </m.div>
 
           {/* Z2 — Mid foliage */}
-          <m.div className="absolute bottom-0 left-0 w-1/3 h-3/5" style={{ x: foliageLx }}>
-            <IllustrationImage name="hero-foliage-mid-left" alt="" className="w-full h-full object-contain object-bottom-left" />
+          <m.div className="absolute -top-16 bottom-0 left-0 w-[42%]" style={{ x: foliageLx }}>
+            <IllustrationImage name="hero-foliage-mid-left" alt="" className="w-full h-full object-contain object-bottom-left hidden md:block" />
+            <IllustrationImage name="hero-foliage-mid-left-mobile" alt="" className="w-full h-full object-contain object-bottom-left md:hidden" />
           </m.div>
-          <m.div className="absolute bottom-0 right-0 w-1/3 h-3/5" style={{ x: foliageRx }}>
-            <IllustrationImage name="hero-foliage-mid-right" alt="" className="w-full h-full object-contain object-bottom-right" />
+          <m.div className="absolute -top-16 bottom-0 right-0 w-[42%]" style={{ x: foliageRx }}>
+            <IllustrationImage name="hero-foliage-mid-right" alt="" className="w-full h-full object-contain object-bottom-right hidden md:block" />
+            <IllustrationImage name="hero-foliage-mid-right-mobile" alt="" className="w-full h-full object-contain object-bottom-right md:hidden" />
           </m.div>
 
           {/* Z3 — Ground track */}
@@ -327,23 +350,23 @@ function AnimatedHero({ prefersReducedMotion }) {
 
           {/* Z4 — Train: horizontal flex row, engine + 4 carriages side by side */}
           <m.div
-            className="absolute bottom-6 md:bottom-10 right-0 w-[92vw] md:w-[60vw] flex flex-row items-end"
+            className="absolute bottom-5 md:bottom-7 right-0 w-[120vw] md:w-[80vw] flex flex-row items-end"
             style={{ x: trainX }}
           >
             {/* Engine — 24% of train width */}
             <div className="relative w-[24%] shrink-0">
               <IllustrationImage name="train-engine" alt="" className="w-full h-auto" />
-              <span className="absolute top-[20%] left-[14%] font-display font-bold text-[6px] md:text-[9px] text-brand-navy/80 whitespace-nowrap pointer-events-none">
-                Chutti Express
+              <span className="absolute top-[55%] left-1/2 -translate-x-1/2 font-display font-bold text-[6px] md:text-[9px] text-brand-navy text-center leading-tight pointer-events-none">
+                Chutti<br />Express
               </span>
-              <m.div className="absolute bottom-[-10%] left-[8%] w-[18%]" style={{ rotate: wheelRot }}>
+              <m.div className="absolute bottom-[8%] left-[15%] w-[22%]" style={{ rotate: wheelRot }}>
                 <IllustrationImage name="train-wheel" alt="" className="w-full h-auto" />
               </m.div>
-              <m.div className="absolute bottom-[-10%] left-[30%] w-[18%]" style={{ rotate: wheelRot }}>
+              <m.div className="absolute bottom-[8%] left-[56%] w-[22%]" style={{ rotate: wheelRot }}>
                 <IllustrationImage name="train-wheel" alt="" className="w-full h-auto" />
               </m.div>
               {steamPuffs.map(id => (
-                <div key={id} className="absolute top-[-20%] left-[16%] w-[22%] pointer-events-none animate-steam-puff">
+                <div key={id} className="absolute top-[-30%] left-[10%] w-[34%] pointer-events-none animate-steam-puff">
                   <IllustrationImage name="train-steam-puff" alt="" className="w-full h-auto" />
                 </div>
               ))}
@@ -357,22 +380,26 @@ function AnimatedHero({ prefersReducedMotion }) {
               { asset: 'train-carriage-b', pax: 'train-passengers-teens',     label: 'Teens'    },
             ].map((car, i) => (
               <div key={i} className="relative w-[19%] shrink-0 -ml-[0.5%]">
-                {/* Passengers behind carriage — only heads/shoulders peek above the walls */}
-                <div className="absolute bottom-[28%] left-1/2 -translate-x-1/2 w-[90%] z-0">
+                {/* Passengers z-0 — behind everything */}
+                <div className="absolute bottom-[42%] left-1/2 -translate-x-1/2 w-[90%] z-0">
                   <IllustrationImage name={car.pax} alt="" className="w-full h-auto" />
                 </div>
-                {/* Carriage on top — masks lower body of passengers */}
+                {/* Wheels z-[1] — behind carriage, show through transparent arc openings */}
+                <m.div className="absolute bottom-[4%] left-[10%] w-[24%] z-[1]" style={{ rotate: wheelRot }}>
+                  <IllustrationImage name="train-wheel" alt="" className="w-full h-auto" />
+                </m.div>
+                <m.div className="absolute bottom-[4%] left-[38%] w-[24%] z-[1]" style={{ rotate: wheelRot }}>
+                  <IllustrationImage name="train-wheel" alt="" className="w-full h-auto" />
+                </m.div>
+                <m.div className="absolute bottom-[4%] right-[8%] w-[24%] z-[1]" style={{ rotate: wheelRot }}>
+                  <IllustrationImage name="train-wheel" alt="" className="w-full h-auto" />
+                </m.div>
+                {/* Carriage z-10 — on top, transparent arc holes reveal wheels behind */}
                 <div className="relative z-10">
                   <IllustrationImage name={car.asset} alt="" className="w-full h-auto" />
-                  <span className="absolute top-[18%] left-[8%] font-display font-bold text-[7px] md:text-[10px] text-brand-navy/70 pointer-events-none">
+                  <span className="absolute top-[52%] left-1/2 -translate-x-1/2 font-display font-bold text-[7px] md:text-[10px] text-brand-navy pointer-events-none whitespace-nowrap">
                     {car.label}
                   </span>
-                  <m.div className="absolute bottom-[-10%] left-[12%] w-[20%]" style={{ rotate: wheelRot }}>
-                    <IllustrationImage name="train-wheel" alt="" className="w-full h-auto" />
-                  </m.div>
-                  <m.div className="absolute bottom-[-10%] right-[12%] w-[20%]" style={{ rotate: wheelRot }}>
-                    <IllustrationImage name="train-wheel" alt="" className="w-full h-auto" />
-                  </m.div>
                 </div>
               </div>
             ))}
@@ -394,7 +421,7 @@ function AnimatedHero({ prefersReducedMotion }) {
 
           {/* Z6 — Monkey */}
           <m.div
-            className="absolute top-0 right-[6%] w-32 md:w-44 origin-top"
+            className="absolute -top-8 right-[6%] w-32 md:w-44 origin-top"
             style={{ y: monkeyY, rotate: monkeyRot }}
           >
             <IllustrationImage name="hero-monkey-peek" alt="" className="w-full h-auto" />
@@ -439,8 +466,8 @@ function AnimatedHero({ prefersReducedMotion }) {
         <div className="absolute inset-0 pointer-events-none">
           {/* Bird perched — appears after flight exits */}
           <m.div
-            className="absolute top-1/3 right-1/4 w-24 md:w-36 pointer-events-auto"
-            style={{ opacity: useTransform(p, [0.58, 0.64], [0, 1]) }}
+            className="absolute top-[32%] left-[8%] w-24 md:w-36 pointer-events-auto scale-x-[-1]"
+            style={{ opacity: useTransform(p, [0.62, 0.66], [0, 1]) }}
           >
             {(() => {
               const c = charByID('hornbill');
@@ -470,18 +497,16 @@ function AnimatedHero({ prefersReducedMotion }) {
           </div>
         )}
 
-        {/* ── Tap hint ───────────────────────────────────────────────── */}
-        {showTapHint && (
-          <div className="absolute bottom-24 left-1/2 md:left-2/3 -translate-x-1/2 z-20 pointer-events-none">
-            <div className="flex items-center gap-2 bg-sun-yellow text-brand-navy font-body text-[12px] font-medium px-3 py-1.5 rounded-full shadow-sm animate-bubble-in">
-              <Hand size={12} aria-hidden="true" />
-              Psst… tap the animals
-            </div>
-          </div>
-        )}
 
-        {/* ── Content card (always in DOM, always usable) ──────────── */}
-        <HeroContentCard openBooking={openBooking} />
+        {/* ── Sky headline — fades in as scene settles ─────────── */}
+        <m.h1
+          className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[80%] md:w-[55%] text-center font-display font-extrabold text-[22px] md:text-[32px] lg:text-[40px] text-brand-navy leading-[1.1] z-20 pointer-events-none"
+          style={{ opacity: useTransform(p, [0.80, 1.0], [0, 1]) }}
+        >
+          A dental home for your child —<br />
+          from the first tooth<br />
+          to the teen years.
+        </m.h1>
       </div>
     </div>
   );
