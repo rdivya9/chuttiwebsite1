@@ -434,7 +434,7 @@ function AnimatedHero({ prefersReducedMotion }) {
           <m.div className="absolute top-[10%] left-0 w-2/5" style={{ x: cloudL1x, opacity: cloudOp }}>
             <IllustrationImage name="hero-cloud-1" alt="" priority className="w-full h-auto" />
           </m.div>
-          <m.div className="absolute top-[5%] right-0 w-2/5" style={{ x: cloudR1x, opacity: cloudOp }}>
+          <m.div className="absolute top-[9%] right-0 w-2/5" style={{ x: cloudR1x, opacity: cloudOp }}>
             <IllustrationImage name="hero-cloud-2" alt="" priority className="w-full h-auto" />
           </m.div>
           <m.div className="absolute top-[2%] left-1/4 w-1/4 hidden md:block" style={{ y: cloudMy, opacity: cloudOp }}>
