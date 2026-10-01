@@ -40,6 +40,11 @@ function SettledScene({ children }) {
           <IllustrationImage name="hero-canopy-back" alt="" className="w-full h-full object-cover object-bottom hidden md:block" />
           <IllustrationImage name="hero-canopy-back-mobile" alt="" className="w-full h-full object-cover object-bottom md:hidden" />
         </div>
+        {/* Giraffe bush — covers neck cutoff */}
+        <div className="absolute top-[70%] left-[24%] w-44" aria-hidden="true">
+          <IllustrationImage name="hero-giraffe-bush" alt="" className="w-full h-auto" />
+        </div>
+
         <div className="absolute -top-16 bottom-0 left-0 w-[42%]">
           <IllustrationImage name="hero-foliage-mid-left" alt="" className="w-full h-full object-contain object-bottom-left hidden md:block" />
           <IllustrationImage name="hero-foliage-mid-left-mobile" alt="" className="w-full h-full object-contain object-bottom-left md:hidden" />
@@ -56,12 +61,12 @@ function SettledScene({ children }) {
         <div className="absolute bottom-8 left-1/2 -translate-x-1/4 w-[80%] md:w-[72%]">
           <IllustrationImage name="train-engine" alt="" className="w-full h-auto" />
         </div>
-        {/* Giraffe up */}
-        <div className="absolute bottom-1/4 left-1/4 w-20 md:w-28">
+        {/* Giraffe — body hidden behind foliage/ground */}
+        <div className="absolute top-[31%] left-1/4 w-20 md:w-28">
           <IllustrationImage name="hero-giraffe-head" alt="" className="w-full h-auto" />
         </div>
         {/* Bird perched */}
-        <div className="absolute top-[32%] left-[8%] w-24 md:w-36 scale-x-[-1]">
+        <div className="absolute top-[31%] left-[8%] w-24 md:w-36 scale-x-[-1]">
           <IllustrationImage name="hero-bird-perched" alt="" className="w-full h-auto" />
         </div>
         {/* Curtain open — small remnants at edges */}
@@ -245,6 +250,21 @@ function AnimatedHero({ prefersReducedMotion }) {
     return () => clearInterval(interval);
   }, []);
 
+  // ── Giraffe natural blinking — varied interval 2–6s ─────────────────
+  useEffect(() => {
+    let timer;
+    const scheduleBlink = () => {
+      const delay = 2000 + Math.random() * 4000; // 2–6s
+      timer = setTimeout(() => {
+        setBlinkActive(true);
+        setTimeout(() => setBlinkActive(false), 120 + Math.random() * 80); // 120–200ms
+        scheduleBlink();
+      }, delay);
+    };
+    scheduleBlink();
+    return () => clearTimeout(timer);
+  }, []);
+
   // ── Bird wing flap (time-based) ───────────────────────────────────────
   useEffect(() => {
     const interval = setInterval(() => setWingUp(v => !v), 180);
@@ -277,7 +297,7 @@ function AnimatedHero({ prefersReducedMotion }) {
   // Train
   const trainX    = useTransform(p, [0.54, 0.86], ['115vw', '-6vw']);
   const trainDist = useTransform(p, [0.54, 0.86], [0, 600]);
-  const wheelRot  = useTransform(trainDist, d => (d / WHEEL_CIRC) * 360);
+  const wheelRot  = useTransform(trainDist, d => -((d / WHEEL_CIRC) * 360));
 
   // Bird arc
   const birdX     = useTransform(p, [0.12, 0.64], ['105vw', '-83vw']);
@@ -320,9 +340,9 @@ function AnimatedHero({ prefersReducedMotion }) {
             <IllustrationImage name="hero-canopy-back-mobile" alt="" className="w-full h-full object-cover object-bottom md:hidden" sizes="100vw" />
           </m.div>
 
-          {/* Z1 — Giraffe */}
+          {/* Z1 — Giraffe — body hidden behind foliage/ground */}
           <m.div
-            className="absolute bottom-1/4 left-[22%] w-20 md:w-28 lg:w-36 origin-bottom"
+            className="absolute top-[31%] left-[22%] w-20 md:w-28 lg:w-36 origin-top"
             style={{ y: giraffeY }}
           >
             <IllustrationImage
@@ -330,6 +350,15 @@ function AnimatedHero({ prefersReducedMotion }) {
               alt=""
               className="w-full h-auto"
             />
+          </m.div>
+
+          {/* Z1b — Giraffe bush (covers neck cutoff) — moves with left foliage */}
+          <m.div
+            className="absolute top-[70%] left-[22%] w-44"
+            style={{ x: foliageLx }}
+            aria-hidden="true"
+          >
+            <IllustrationImage name="hero-giraffe-bush" alt="" className="w-full h-auto" />
           </m.div>
 
           {/* Z2 — Mid foliage */}
@@ -350,7 +379,7 @@ function AnimatedHero({ prefersReducedMotion }) {
 
           {/* Z4 — Train: horizontal flex row, engine + 4 carriages side by side */}
           <m.div
-            className="absolute bottom-5 md:bottom-7 right-0 w-[120vw] md:w-[80vw] flex flex-row items-end"
+            className="absolute bottom-5 md:bottom-7 right-0 w-[120vw] md:w-[80vw] flex flex-row items-end z-10"
             style={{ x: trainX }}
           >
             {/* Engine — 24% of train width */}
@@ -359,10 +388,13 @@ function AnimatedHero({ prefersReducedMotion }) {
               <span className="absolute top-[55%] left-1/2 -translate-x-1/2 font-display font-bold text-[6px] md:text-[9px] text-brand-navy text-center leading-tight pointer-events-none">
                 Chutti<br />Express
               </span>
-              <m.div className="absolute bottom-[8%] left-[15%] w-[22%]" style={{ rotate: wheelRot }}>
+              <m.div className="absolute w-[22%]" style={{ rotate: wheelRot, bottom: '-15px', left: '26%' }}>
                 <IllustrationImage name="train-wheel" alt="" className="w-full h-auto" />
               </m.div>
-              <m.div className="absolute bottom-[8%] left-[56%] w-[22%]" style={{ rotate: wheelRot }}>
+              <m.div className="absolute w-[22%]" style={{ rotate: wheelRot, bottom: '-13px', left: '48%' }}>
+                <IllustrationImage name="train-wheel" alt="" className="w-full h-auto" />
+              </m.div>
+              <m.div className="absolute w-[22%]" style={{ rotate: wheelRot, bottom: '-11px', left: '70%' }}>
                 <IllustrationImage name="train-wheel" alt="" className="w-full h-auto" />
               </m.div>
               {steamPuffs.map(id => (
@@ -385,15 +417,20 @@ function AnimatedHero({ prefersReducedMotion }) {
                   <IllustrationImage name={car.pax} alt="" className="w-full h-auto" />
                 </div>
                 {/* Wheels z-[1] — behind carriage, show through transparent arc openings */}
-                <m.div className="absolute bottom-[4%] left-[10%] w-[24%] z-[1]" style={{ rotate: wheelRot }}>
-                  <IllustrationImage name="train-wheel" alt="" className="w-full h-auto" />
-                </m.div>
-                <m.div className="absolute bottom-[4%] left-[38%] w-[24%] z-[1]" style={{ rotate: wheelRot }}>
-                  <IllustrationImage name="train-wheel" alt="" className="w-full h-auto" />
-                </m.div>
-                <m.div className="absolute bottom-[4%] right-[8%] w-[24%] z-[1]" style={{ rotate: wheelRot }}>
-                  <IllustrationImage name="train-wheel" alt="" className="w-full h-auto" />
-                </m.div>
+                {(() => {
+                  const wb = '-7px';
+                  return (<>
+                    <m.div className="absolute w-[24%] z-20" style={{ rotate: wheelRot, bottom: wb, left: 'calc(10% + 4px)' }}>
+                      <IllustrationImage name="train-wheel" alt="" className="w-full h-auto" />
+                    </m.div>
+                    <m.div className="absolute left-[38%] w-[24%] z-20" style={{ rotate: wheelRot, bottom: wb }}>
+                      <IllustrationImage name="train-wheel" alt="" className="w-full h-auto" />
+                    </m.div>
+                    <m.div className="absolute w-[24%] z-20" style={{ rotate: wheelRot, bottom: wb, right: 'calc(8% + 8px)' }}>
+                      <IllustrationImage name="train-wheel" alt="" className="w-full h-auto" />
+                    </m.div>
+                  </>);
+                })()}
                 {/* Carriage z-10 — on top, transparent arc holes reveal wheels behind */}
                 <div className="relative z-10">
                   <IllustrationImage name={car.asset} alt="" className="w-full h-auto" />
@@ -466,7 +503,7 @@ function AnimatedHero({ prefersReducedMotion }) {
         <div className="absolute inset-0 pointer-events-none">
           {/* Bird perched — appears after flight exits */}
           <m.div
-            className="absolute top-[32%] left-[8%] w-24 md:w-36 pointer-events-auto scale-x-[-1]"
+            className="absolute top-[31%] left-[8%] w-24 md:w-36 pointer-events-auto scale-x-[-1]"
             style={{ opacity: useTransform(p, [0.62, 0.66], [0, 1]) }}
           >
             {(() => {

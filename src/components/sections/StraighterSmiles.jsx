@@ -29,7 +29,7 @@ export default function StraighterSmiles() {
   const { openBooking } = useBooking();
 
   return (
-    <Section bg="sun-yellow" id="aligners" className="bg-sun-yellow/30">
+    <Section bg="sun-yellow" id="aligners" className="bg-sun-yellow/60">
       <div className="grid md:grid-cols-2 gap-12 items-center">
         {/* Text */}
         <div className="space-y-8 order-1">

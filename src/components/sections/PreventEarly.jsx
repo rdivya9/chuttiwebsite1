@@ -1,3 +1,4 @@
+import { Check } from 'lucide-react';
 import Section from '@/components/ui/Section';
 import IllustrationImage from '@/components/ui/IllustrationImage';
 
@@ -21,10 +22,11 @@ const whatThePlanCanInclude = [
 
 export default function PreventEarly() {
   return (
-    <Section bg="morning-white" id="prevent-early">
-      <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
-        {/* Text */}
-        <div className="space-y-8">
+    <Section bg="sky-mist" id="prevent-early">
+      <div className="space-y-10">
+
+        {/* Top: heading + illustration */}
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div className="space-y-4">
             <h2 className="font-display font-bold text-h2-mobile md:text-h2-desktop text-brand-navy">
               Prevent early.
@@ -41,47 +43,70 @@ export default function PreventEarly() {
               to your child, not a generic advice sheet.
             </p>
           </div>
-
-          {/* Two-column lists */}
-          <div className="grid sm:grid-cols-2 gap-8">
-            <div>
-              <h3 className="font-display font-semibold text-h3-mobile text-brand-navy mb-3">
-                What we look at
-              </h3>
-              <ul className="space-y-2">
-                {whatWeLookAt.map((item, i) => (
-                  <li key={i} className="flex gap-2 font-body text-[14px] text-brand-navy/75 leading-snug">
-                    <span className="text-brand-green font-bold mt-0.5 shrink-0">✓</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-display font-semibold text-h3-mobile text-brand-navy mb-3">
-                What the plan can include
-              </h3>
-              <ul className="space-y-2">
-                {whatThePlanCanInclude.map((item, i) => (
-                  <li key={i} className="flex gap-2 font-body text-[14px] text-brand-navy/75 leading-snug">
-                    <span className="text-brand-green font-bold mt-0.5 shrink-0">✓</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="flex justify-center">
+            <IllustrationImage
+              name="approach-elephant-family"
+              alt="A parent walking with a young child alongside a mother elephant and her calf — one dental home across all of childhood"
+              className="w-full max-w-xs md:max-w-full h-auto"
+            />
           </div>
         </div>
 
-        {/* Illustration */}
-        <div className="flex flex-col items-center gap-6">
-          {/* TODO Phase 5: TappableCharacter wrapper */}
-          <IllustrationImage
-            name="approach-elephant-family"
-            alt="A parent walking with a young child alongside a mother elephant and her calf — one dental home across all of childhood"
-            className="w-full max-w-xs md:max-w-full h-auto"
-          />
+        {/* Full-width glass cards */}
+        <div className="grid sm:grid-cols-2 gap-4">
+          {/* Card 1 */}
+          <div
+            className="rounded-2xl p-6 md:p-7"
+            style={{
+              background: 'linear-gradient(135deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.30) 100%)',
+              borderLeft: '4px solid rgba(22,41,92,0.35)',
+              boxShadow: '0 8px 32px rgba(22,41,92,0.10), inset 0 1px 0 rgba(255,255,255,0.95)',
+              backdropFilter: 'blur(16px)',
+              WebkitBackdropFilter: 'blur(16px)',
+            }}
+          >
+            <h3 className="font-display font-semibold text-[17px] text-brand-navy mb-4">
+              What we look at
+            </h3>
+            <ul className="space-y-3">
+              {whatWeLookAt.map((item, i) => (
+                <li key={i} className="flex gap-3 font-body text-[13.5px] text-brand-navy/75 leading-snug">
+                  <span className="flex items-center justify-center w-5 h-5 rounded-full bg-brand-green shrink-0 mt-0.5">
+                    <Check size={10} className="text-white" aria-hidden="true" />
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Card 2 */}
+          <div
+            className="rounded-2xl p-6 md:p-7"
+            style={{
+              background: 'linear-gradient(135deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.30) 100%)',
+              borderLeft: '4px solid rgba(22,41,92,0.35)',
+              boxShadow: '0 8px 32px rgba(22,41,92,0.10), inset 0 1px 0 rgba(255,255,255,0.95)',
+              backdropFilter: 'blur(16px)',
+              WebkitBackdropFilter: 'blur(16px)',
+            }}
+          >
+            <h3 className="font-display font-semibold text-[17px] text-brand-navy mb-4">
+              What the plan can include
+            </h3>
+            <ul className="space-y-3">
+              {whatThePlanCanInclude.map((item, i) => (
+                <li key={i} className="flex gap-3 font-body text-[13.5px] text-brand-navy/75 leading-snug">
+                  <span className="flex items-center justify-center w-5 h-5 rounded-full bg-brand-green shrink-0 mt-0.5">
+                    <Check size={10} className="text-white" aria-hidden="true" />
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
+
       </div>
     </Section>
   );

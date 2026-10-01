@@ -71,63 +71,6 @@ export default function ComfortCare() {
           </p>
         </div>
 
-        {/* Two cards: Laughing gas + Special needs */}
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* Laughing gas */}
-          <div className="bg-morning-white rounded-card p-6 shadow-card space-y-4">
-            <h3 className="font-display font-semibold text-h3-mobile text-brand-navy">
-              Laughing gas, in-house
-            </h3>
-            {/* Real equipment photo — Phase 2: placeholder until photo is confirmed */}
-            <div className="rounded-xl overflow-hidden bg-sky-mist aspect-video flex items-center justify-center">
-              {/* TODO: replace this placeholder with the real laughing-gas equipment photo
-                  once the clinic provides a cropped photo (cables/AC unit excluded).
-                  Use: <Image src="/photos/clinic-laughing-gas.jpg" ... /> */}
-              <p className="font-body text-[13px] text-brand-navy/40 text-center px-4">
-                [Photo placeholder — laughing gas unit photo needed from clinic]
-              </p>
-            </div>
-            <p className="font-body text-[14px] text-brand-navy/75 leading-relaxed">
-              For children who need extra help feeling calm. Breathed through a small, comfortable
-              nose mask — your child stays fully awake and relaxed. Used only after clinical
-              assessment; not used for every anxious child.
-            </p>
-            <Button href="/services/gentle-dentistry-sedation#laughing-gas" variant="ghost" size="sm">
-              Learn more about laughing gas
-            </Button>
-          </div>
-
-          {/* Special healthcare needs */}
-          <div className="bg-morning-white rounded-card p-6 shadow-card space-y-4">
-            <h3 className="font-display font-semibold text-h3-mobile text-brand-navy">
-              Children with special healthcare needs
-            </h3>
-            <IllustrationImage
-              name="svc-special-needs-elephant"
-              alt="A child with sensory headphones sitting calmly beside an elephant calf, holding a comfort toy"
-              className="w-full h-auto rounded-xl"
-            />
-            <p className="font-body text-[14px] text-brand-navy/75 leading-relaxed">
-              Extra time, individualised planning around medical history and developmental needs.
-              Safety, dignity and family-centred care. Tell us about your child when you book — the
-              more we know, the better we can prepare.
-            </p>
-            <Button href="/services/special-needs-dentistry" variant="ghost" size="sm">
-              Special needs dental care
-            </Button>
-          </div>
-        </div>
-
-        {/* Turtle walk — Phase 5 ambient animation */}
-        {/* TODO Phase 5: wrap IllustrationImage in comfort-turtle-walk ambient animation
-            (x -10% → 110% over 40s, loop while in view) */}
-        <div className="flex justify-center opacity-60 pointer-events-none" aria-hidden="true">
-          <IllustrationImage
-            name="comfort-turtle-walk"
-            alt=""
-            className="w-48 h-auto"
-          />
-        </div>
       </div>
     </Section>
   );

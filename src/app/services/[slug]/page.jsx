@@ -1,12 +1,36 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { MessageCircle } from 'lucide-react';
+import { MessageCircle, Clock, Eye, Smile, Heart } from 'lucide-react';
 import PageHeaderScene from '@/components/ui/PageHeaderScene';
 import Section from '@/components/ui/Section';
 import FaqAccordion from '@/components/ui/FaqAccordion';
 import Button from '@/components/ui/Button';
+import IllustrationImage from '@/components/ui/IllustrationImage';
 import { services } from '@/data/services';
 import siteConfig from '@/data/siteConfig';
+
+const alignerAdvantages = [
+  {
+    icon: Clock,
+    title: 'Monitored from the first tooth',
+    body: 'Dr. Bhuvanesswari has often been watching your child\'s jaw and bite develop for years before aligners are even discussed. The plan starts from a place of real knowledge.',
+  },
+  {
+    icon: Eye,
+    title: 'Root causes, not just crooked teeth',
+    body: 'Habits like thumb-sucking, tongue-thrust and early tooth loss shape alignment. A pediatric specialist recognises these because she has seen the whole picture.',
+  },
+  {
+    icon: Smile,
+    title: 'Clear trays children can live with',
+    body: 'Removable for eating, brushing and school. No metal, no brackets, no emergency wire visits. Children adapt faster than most parents expect.',
+  },
+  {
+    icon: Heart,
+    title: 'One doctor, one relationship',
+    body: 'No referral to a stranger. The same doctor who knows your child\'s history, fears and habits is the one planning and monitoring the aligners.',
+  },
+];
 
 export async function generateStaticParams() {
   return services.map(s => ({ slug: s.slug }));
@@ -116,7 +140,7 @@ export default function ServicePage({ params }) {
       />
 
       <Section bg="morning-white">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl mx-auto">
           {/* Emergency note (if applicable) */}
           {svc.emergencyNote && (
             <div className="mb-8 bg-sun-yellow/40 border border-sun-yellow rounded-card p-4">
@@ -139,6 +163,41 @@ export default function ServicePage({ params }) {
               {svc.importantNotes.map((note, i) => (
                 <p key={i} className="font-body text-[13px] text-brand-navy/40 leading-relaxed">• {note}</p>
               ))}
+            </div>
+          )}
+
+          {/* Aligner specialist section — clear-aligners page only */}
+          {svc.slug === 'clear-aligners' && (
+            <div className="mt-12 rounded-[24px] overflow-hidden" style={{ background: 'linear-gradient(135deg, #FFF8D6 0%, #FFFBEE 100%)' }}>
+              <div className="p-6 md:p-10 space-y-8">
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                  <div className="space-y-2">
+                    <p className="font-body text-[12px] font-semibold uppercase tracking-widest text-brand-navy/50">Invisalign Provider</p>
+                    <h2 className="font-display font-bold text-h2-mobile md:text-h2-desktop text-brand-navy leading-tight">
+                      Planned by someone who has watched your child's teeth grow.
+                    </h2>
+                  </div>
+                  <IllustrationImage
+                    name="aligners-teen-giraffe"
+                    alt="A confident teen with a clear aligner tray beside a giraffe"
+                    className="w-28 md:w-36 h-auto shrink-0"
+                  />
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {alignerAdvantages.map(({ icon: Icon, title, body }) => (
+                    <div key={title} className="bg-white/70 rounded-2xl p-5 space-y-2 border border-brand-navy/6">
+                      <div className="flex items-center gap-3">
+                        <span className="flex items-center justify-center w-9 h-9 rounded-full bg-sun-yellow shrink-0">
+                          <Icon size={16} className="text-brand-navy" aria-hidden="true" />
+                        </span>
+                        <p className="font-display font-semibold text-[15px] text-brand-navy leading-snug">{title}</p>
+                      </div>
+                      <p className="font-body text-[13.5px] text-brand-navy/70 leading-relaxed">{body}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           )}
 

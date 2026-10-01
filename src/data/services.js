@@ -474,7 +474,7 @@ export const services = [
     title:              "Laser Dentistry & Frenectomy",
     navGroup:           "services",
     headerIllustration: "svc-laser-firefly",
-    headerTint:         "morning-white",
+    headerTint:         "sky-mist",
     intro:
       "Laser dentistry allows certain procedures to be done with greater precision and often less discomfort than conventional methods. At Chutti's, laser is used for selected procedures where it is clinically the better choice.",
     treatments: [
@@ -574,11 +574,7 @@ export const services = [
         expect: null,
       },
     ],
-    importantNotes: [
-      "No pricing, discount or EMI language is shown on this site.",
-      "No before-and-after photos or case photos (not available).",
-      "Invisalign provider means we provide Invisalign; no tier claim is made.",
-    ],
+    importantNotes: [],
     faqs: [
       {
         q: "What age can my child get aligners?",

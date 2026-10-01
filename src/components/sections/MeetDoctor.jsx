@@ -12,17 +12,17 @@ const credentials = [
 
 export default function MeetDoctor() {
   return (
-    <Section bg="morning-white" id="meet-doctor">
+    <Section bg="blush" id="meet-doctor">
       <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
 
         {/* Doctor photo — organic leaf-edge mask via SVG clip-path */}
         {/* Phase 5: replace clip-path with mask-leaf-1 SVG clipPath */}
-        <div className="flex justify-center md:justify-start order-2 md:order-1">
-          <div className="relative w-72 md:w-80">
+        <div className="flex justify-center md:justify-start order-2 md:order-1 md:pl-[1%] md:-translate-y-[9%]">
+          <div className="relative w-88 md:w-[26rem]">
             {/* Soft leaf-edge frame (CSS approximation — Phase 5: real SVG mask) */}
             <div
-              className="overflow-hidden rounded-[40%_60%_55%_45%/45%_55%_60%_40%] shadow-card"
-              style={{ aspectRatio: '3/4' }}
+              className="overflow-hidden rounded-2xl shadow-card"
+              style={{ aspectRatio: '4/5' }}
             >
               <Image
                 src={siteConfig.doctor.photo}
@@ -33,9 +33,6 @@ export default function MeetDoctor() {
                 sizes="(max-width: 768px) 288px, 320px"
               />
             </div>
-            {/* Small leaf accents */}
-            <div aria-hidden="true" className="absolute -bottom-3 -right-3 w-12 h-12 bg-leaf-mint rounded-full opacity-70" />
-            <div aria-hidden="true" className="absolute -top-2 -left-2 w-8 h-8 bg-brand-green/20 rounded-full" />
           </div>
         </div>
 
@@ -73,7 +70,7 @@ export default function MeetDoctor() {
           </div>
 
           {/* Why a pediatric dentist */}
-          <div className="bg-sky-mist rounded-card p-5 space-y-2">
+          <div className="bg-morning-white rounded-card p-5 space-y-2">
             <h3 className="font-display font-semibold text-[16px] text-brand-navy">
               Why a pediatric dentist?
             </h3>

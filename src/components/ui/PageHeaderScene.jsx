@@ -32,7 +32,7 @@ export default function PageHeaderScene({
         {/* Breadcrumbs */}
         {breadcrumbs.length > 0 && <Breadcrumbs items={breadcrumbs} />}
 
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center min-h-[160px] md:min-h-[200px]">
           {/* Text */}
           <div className="space-y-4 order-1">
             <h1 className="font-display font-extrabold text-h2-mobile md:text-h2-desktop text-brand-navy leading-[1.1]">
@@ -51,7 +51,7 @@ export default function PageHeaderScene({
               <IllustrationImage
                 name={illustration}
                 alt={illustrationAlt || ''}
-                className="w-48 h-auto md:w-64 lg:w-72"
+                className="w-auto h-36 md:h-44 object-contain"
               />
             </div>
           )}

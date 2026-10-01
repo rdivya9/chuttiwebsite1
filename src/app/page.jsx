@@ -21,16 +21,16 @@ import ClosingDusk      from '@/components/sections/ClosingDusk';
 export default function HomePage() {
   return (
     <>
-      <JungleHero />
-      <WhyParents />
+      <div className="hidden md:block"><JungleHero /></div>
       <OurMotto />
       <TrainJourney />
+      <WhyParents />
+      <MeetDoctor />
+      <ServicesOverview />
+      <StraighterSmiles />
       <PreventEarly />
       <ComfortCare />
-      <StraighterSmiles />
-      <MeetDoctor />
       <InsideClinic />
-      <ServicesOverview />
       <EmergencyBand />
       <ParentReviews />
       <FirstVisitSection />

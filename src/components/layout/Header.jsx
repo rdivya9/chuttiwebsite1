@@ -25,8 +25,9 @@ const serviceLinks = [
 // ── About dropdown items ─────────────────────────────────────────────────
 const aboutLinks = [
   { label: 'About Us',             href: '/about' },
-  { label: 'Our Approach',         href: '/about#our-approach' },
   { label: 'Dr. Bhuvanesswari',    href: '/about#dr-bhuvanesswari' },
+  { label: 'Our Approach',         href: '/about#our-approach' },
+  { label: 'Videos',               href: '/about#videos' },
 ];
 
 // ── Dropdown hook (hover with 150ms intent delay + keyboard) ─────────────
@@ -68,8 +69,15 @@ function useDropdown() {
 }
 
 // ── Desktop Dropdown ─────────────────────────────────────────────────────
-function DesktopDropdown({ label, links, columns = 1 }) {
+function DesktopDropdown({ label, href, links, columns = 1 }) {
   const { open, ref, handleMouseEnter, handleMouseLeave, toggle, close } = useDropdown();
+
+  const btnClass = [
+    'flex items-center gap-1 px-3 py-2 rounded-lg text-brand-navy/80 font-body font-medium text-[15px]',
+    'hover:text-brand-pink hover:bg-brand-pink/5 transition-colors duration-150',
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-1',
+    open ? 'text-brand-pink' : '',
+  ].join(' ');
 
   return (
     <div
@@ -78,24 +86,36 @@ function DesktopDropdown({ label, links, columns = 1 }) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <button
-        onClick={toggle}
-        aria-expanded={open}
-        aria-haspopup="true"
-        className={[
-          'flex items-center gap-1 px-3 py-2 rounded-lg text-brand-navy/80 font-body font-medium text-[15px]',
-          'hover:text-brand-pink hover:bg-brand-pink/5 transition-colors duration-150',
-          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-1',
-          open ? 'text-brand-pink' : '',
-        ].join(' ')}
-      >
-        {label}
-        <ChevronDown
-          size={15}
-          aria-hidden="true"
-          className={`transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
-        />
-      </button>
+      {href ? (
+        <div className="flex items-center">
+          <Link href={href} className={btnClass} onClick={close}>
+            {label}
+          </Link>
+          <button
+            onClick={toggle}
+            aria-expanded={open}
+            aria-haspopup="true"
+            className={[
+              'flex items-center justify-center p-2 rounded-lg text-brand-navy/80',
+              'hover:text-brand-pink hover:bg-brand-pink/5 transition-colors duration-150',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-1',
+              open ? 'text-brand-pink' : '',
+            ].join(' ')}
+          >
+            <ChevronDown size={15} aria-hidden="true" className={`transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
+          </button>
+        </div>
+      ) : (
+        <button
+          onClick={toggle}
+          aria-expanded={open}
+          aria-haspopup="true"
+          className={btnClass}
+        >
+          {label}
+          <ChevronDown size={15} aria-hidden="true" className={`transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
+        </button>
+      )}
 
       {open && (
         <div
@@ -207,6 +227,13 @@ export default function Header() {
 
           {/* ── Desktop navigation ──────────────────────────────────────── */}
           <nav aria-label="Main navigation" className="hidden md:flex items-center gap-1">
+            <Link
+              href="/"
+              className="px-3 py-2 text-[15px] font-body font-medium text-brand-navy/80 hover:text-brand-pink hover:bg-brand-pink/5 rounded-lg transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-1 translate-y-[3px]"
+            >
+              Home
+            </Link>
+
             <DesktopDropdown label="Services" links={serviceLinks} columns={2} />
 
             <Link
@@ -223,7 +250,7 @@ export default function Header() {
               First Visit
             </Link>
 
-            <DesktopDropdown label="About" links={aboutLinks} columns={1} />
+            <DesktopDropdown label="About" href="/about" links={aboutLinks} columns={1} />
 
             <Link
               href="/blog"
@@ -325,6 +352,7 @@ export default function Header() {
             {/* Drawer nav items */}
             <nav aria-label="Mobile navigation" className="flex-1 px-4 py-4 space-y-1">
               {[
+                { label: 'Home',            href: '/' },
                 { label: 'Services',        href: '/services' },
                 { label: 'Aligners',        href: '/services/clear-aligners' },
                 { label: 'First Visit',     href: '/first-visit' },

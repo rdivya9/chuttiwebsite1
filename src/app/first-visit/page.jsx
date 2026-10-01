@@ -3,6 +3,7 @@ import PageHeaderScene from '@/components/ui/PageHeaderScene';
 import Section from '@/components/ui/Section';
 import FaqAccordion from '@/components/ui/FaqAccordion';
 import Button from '@/components/ui/Button';
+import VisitStepper from '@/components/ui/VisitStepper';
 import { faqs } from '@/data/faqs';
 import siteConfig from '@/data/siteConfig';
 
@@ -51,7 +52,7 @@ export default function FirstVisitPage() {
       />
 
       <Section bg="morning-white">
-        <div className="max-w-3xl space-y-12">
+        <div className="max-w-3xl mx-auto space-y-12">
 
           {/* When to come */}
           <div className="space-y-4">
@@ -76,44 +77,54 @@ export default function FirstVisitPage() {
           </div>
 
           {/* What happens */}
-          <div className="space-y-6">
+          <div className="space-y-4">
             <h2 className="font-display font-bold text-h3-mobile md:text-h3-desktop text-brand-navy">
-              What happens
+              Here's what to expect:
             </h2>
-            <ol className="space-y-5">
-              {visitSteps.map(step => (
-                <li key={step.number} className="flex gap-4">
-                  <span className="flex items-center justify-center w-8 h-8 rounded-full bg-brand-pink text-white font-display font-bold text-[15px] shrink-0 mt-0.5">
-                    {step.number}
-                  </span>
-                  <div>
-                    <p className="font-body font-semibold text-[15px] text-brand-navy">{step.title}</p>
-                    <p className="font-body text-[14px] text-brand-navy/70 leading-relaxed">{step.body}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
+            <VisitStepper steps={visitSteps} defaultActive={4} />
           </div>
 
           {/* What to bring / How to prepare */}
-          <div className="grid sm:grid-cols-2 gap-8">
-            <div className="space-y-4">
-              <h2 className="font-display font-bold text-h3-mobile text-brand-navy">What to bring</h2>
-              <ul className="space-y-2.5">
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div
+              className="rounded-2xl p-6 md:p-7"
+              style={{
+                background: 'linear-gradient(135deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.30) 100%)',
+                borderLeft: '4px solid rgba(22,41,92,0.35)',
+                boxShadow: '0 8px 32px rgba(22,41,92,0.10), inset 0 1px 0 rgba(255,255,255,0.95)',
+                backdropFilter: 'blur(16px)',
+                WebkitBackdropFilter: 'blur(16px)',
+              }}
+            >
+              <h2 className="font-display font-semibold text-[17px] text-brand-navy mb-4">What to bring</h2>
+              <ul className="space-y-3">
                 {whatToBring.map((item, i) => (
-                  <li key={i} className="flex gap-2 font-body text-[14px] text-brand-navy/75 leading-snug">
-                    <span className="text-brand-green font-bold shrink-0 mt-0.5">✓</span>
+                  <li key={i} className="flex gap-3 font-body text-[13.5px] text-brand-navy/75 leading-snug">
+                    <span className="flex items-center justify-center w-5 h-5 rounded-full bg-brand-green shrink-0 mt-0.5">
+                      <span className="text-white text-[10px] font-bold">✓</span>
+                    </span>
                     {item}
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="space-y-4">
-              <h2 className="font-display font-bold text-h3-mobile text-brand-navy">How to prepare your child</h2>
-              <ul className="space-y-2.5">
+            <div
+              className="rounded-2xl p-6 md:p-7"
+              style={{
+                background: 'linear-gradient(135deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.30) 100%)',
+                borderLeft: '4px solid rgba(22,41,92,0.35)',
+                boxShadow: '0 8px 32px rgba(22,41,92,0.10), inset 0 1px 0 rgba(255,255,255,0.95)',
+                backdropFilter: 'blur(16px)',
+                WebkitBackdropFilter: 'blur(16px)',
+              }}
+            >
+              <h2 className="font-display font-semibold text-[17px] text-brand-navy mb-4">How to prepare your child</h2>
+              <ul className="space-y-3">
                 {howToPrepare.map((item, i) => (
-                  <li key={i} className="flex gap-2 font-body text-[14px] text-brand-navy/75 leading-snug">
-                    <span className="text-brand-green font-bold shrink-0 mt-0.5">✓</span>
+                  <li key={i} className="flex gap-3 font-body text-[13.5px] text-brand-navy/75 leading-snug">
+                    <span className="flex items-center justify-center w-5 h-5 rounded-full bg-brand-green shrink-0 mt-0.5">
+                      <span className="text-white text-[10px] font-bold">✓</span>
+                    </span>
                     {item}
                   </li>
                 ))}

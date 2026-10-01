@@ -45,7 +45,7 @@ export default function BlogPostPage({ params }) {
           </div>
         </div>
         <Section bg="morning-white">
-          <div className="max-w-2xl space-y-8">
+          <div className="max-w-2xl mx-auto space-y-8">
             <Image
               src={post.imageFile}
               alt={post.imageAlt && !post.imageAlt.startsWith('TODO')
@@ -97,7 +97,7 @@ export default function BlogPostPage({ params }) {
       </div>
 
       <Section bg="morning-white">
-        <div className="max-w-prose-dental">
+        <div className="max-w-prose-dental mx-auto">
           {/* Article body */}
           {post.sections && post.sections.length > 0 ? (
             <div className="space-y-8 font-body text-body-sm text-brand-navy/80 leading-relaxed">

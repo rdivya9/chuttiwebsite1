@@ -25,9 +25,8 @@ const photos = [
     alt:    "Inside Chutti's Dental & Wellness Center",
     large:  false,
   },
-  // Placeholders for photos still needed from the clinic
-  { src: null, alt: null, label: 'Reception photo — pending from clinic',       large: false },
-  { src: null, alt: null, label: 'Treatment area photo — pending from clinic',  large: false },
+  // Placeholder for photo still needed from the clinic
+  { src: null, alt: null, label: 'Reception photo — pending from clinic', large: false },
 ];
 
 function VideoEmbed({ videoId, title }) {
@@ -57,7 +56,8 @@ function VideoEmbed({ videoId, title }) {
 }
 
 export default function InsideClinic() {
-  const clinicVideo = siteConfig.videos.clinicTour;
+  const clinicVideo   = siteConfig.videos.clinicTour;
+  const doctorVideo   = siteConfig.videos.doctorIntro;
 
   return (
     <Section bg="sky-mist" id="inside-clinic" className="bg-sky-mist/60">
@@ -127,13 +127,18 @@ export default function InsideClinic() {
           )}
         </div>
 
-        {/* Video slot (optional — only renders if clinicVideo is set) */}
+        {/* Video slots */}
         {siteConfig.features.clinicVideo && clinicVideo?.id && (
-          <div className="max-w-xl">
-            <p className="font-body font-medium text-[14px] text-brand-navy/60 mb-3">
-              Take a quick look inside
-            </p>
-            <VideoEmbed videoId={clinicVideo.id} title={clinicVideo.title} />
+          <div className="mt-16 space-y-4">
+            <h3 className="font-display font-semibold text-h3-mobile md:text-h3-desktop text-brand-navy">
+              Hear the doctor speak
+            </h3>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <VideoEmbed videoId={clinicVideo.id} title={clinicVideo.title} />
+              {doctorVideo?.id && (
+                <VideoEmbed videoId={doctorVideo.id} title={doctorVideo.title} />
+              )}
+            </div>
           </div>
         )}
       </div>

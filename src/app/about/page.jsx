@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Breadcrumbs from '@/components/layout/Breadcrumbs';
+import PageHeaderScene from '@/components/ui/PageHeaderScene';
 import Section from '@/components/ui/Section';
 import Button from '@/components/ui/Button';
 import siteConfig from '@/data/siteConfig';
@@ -45,19 +45,12 @@ const credentials = [
 export default function AboutPage() {
   return (
     <>
-      {/* Header */}
-      <div className="bg-leaf-mint pt-20 md:pt-24 pb-10">
-        <div className="max-w-6xl mx-auto px-5 md:px-8">
-          <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'About' }]} />
-          <h1 className="font-display font-extrabold text-h2-mobile md:text-h2-desktop text-brand-navy mt-2">
-            About Chutti's Dental & Wellness Center
-          </h1>
-          <p className="font-body text-body-sm md:text-body-lg text-brand-navy/70 mt-4 max-w-prose-dental leading-relaxed">
-            A prevention-first dental home for children, from the first tooth to the teen years, led
-            by a pediatric specialist who treats the child, not just the tooth.
-          </p>
-        </div>
-      </div>
+      <PageHeaderScene
+        breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'About' }]}
+        title="About Chutti's Dental & Wellness Center"
+        intro="A prevention-first dental home for children, from the first tooth to the teen years, led by a pediatric specialist who treats the child, not just the tooth."
+        tint="leaf-mint"
+      />
 
       {/* Meet the Doctor */}
       <Section bg="morning-white" id="dr-bhuvanesswari">
@@ -65,8 +58,8 @@ export default function AboutPage() {
           {/* Photo */}
           <div className="flex justify-center md:justify-start">
             <div
-              className="overflow-hidden rounded-[40%_60%_55%_45%/45%_55%_60%_40%] shadow-card w-72 md:w-80"
-              style={{ aspectRatio: '3/4' }}
+              className="overflow-hidden rounded-2xl shadow-card w-80 md:w-[26rem]"
+              style={{ aspectRatio: '4/5' }}
             >
               <Image
                 src={siteConfig.doctor.photo}
@@ -123,8 +116,38 @@ export default function AboutPage() {
           </div>
         </div>
 
+        {/* In Her Own Words */}
+        <div className="mt-12 rounded-[24px] p-6 md:p-10 space-y-5 relative overflow-hidden"
+          style={{ background: 'linear-gradient(135deg, #FDE7EF 0%, #FFF5F9 100%)' }}
+        >
+          {/* Decorative quote mark */}
+          <svg aria-hidden="true" className="absolute top-4 left-5 w-10 h-10 text-brand-pink/20 select-none pointer-events-none" viewBox="0 0 40 40" fill="currentColor">
+            <path d="M0 20.6C0 10.4 6.2 3.6 18.6 0l2 3.8C13 5.8 9.4 9.8 8.6 15.4c.4-.1.9-.1 1.4-.1 4.4 0 7.4 3 7.4 7.2 0 4.4-3.2 7.6-7.8 7.6C4 30.1 0 26.3 0 20.6zm22 0C22 10.4 28.2 3.6 40.6 0l2 3.8C35 5.8 31.4 9.8 30.6 15.4c.4-.1.9-.1 1.4-.1 4.4 0 7.4 3 7.4 7.2 0 4.4-3.2 7.6-7.8 7.6-5.6 0-9.6-3.8-9.6-9.5z"/>
+          </svg>
+
+          <p className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-brand-pink pt-6">
+            In her own words
+          </p>
+
+          <div className="space-y-4 font-body text-[15px] md:text-[16px] text-brand-navy/80 leading-loose">
+            <p>
+              I didn't come to pediatric dentistry by accident. When I was seven, I had a decayed tooth treated — I was frightened, I was crying, and the treatment went ahead anyway. That fear stayed with me for years. Once I moved into pediatric dentistry, I felt it was my responsibility to make sure no child left my chair carrying what I'd carried. We slow appointments down, explain everything to the child, and when a child can't cooperate yet, we work through desensitisation instead of forcing anything.
+            </p>
+            <p>
+              I came to this field already a mother. In my early years of practice, every small patient reminded me of my own daughter — treating them with empathy, without ever scaring a child into cooperating, felt like the only honest way to practise.
+            </p>
+            <p>
+              That empathy extends to parents too. I don't shame a mother who walks in with a child who has widespread decay. I know what it's like to be a working mother — some evenings I've come home too tired to make sure my own children brushed properly, and it showed up later as early white-spot lesions on their teeth. Because I'm a dentist, I caught it early. Most parents don't have that advantage. That's the whole reason Chutti's exists as a dedicated practice: so a visit here is something a child can actually enjoy, not just get through.
+            </p>
+          </div>
+
+          <p className="font-body text-[14px] text-brand-navy/50 font-medium">
+            — Dr. Bhuvanesswari S., MDS
+          </p>
+        </div>
+
         {/* Why a pediatric dentist */}
-        <div className="mt-12 bg-sky-mist rounded-card p-6 md:p-8 max-w-3xl">
+        <div className="mt-12 bg-sky-mist rounded-card p-6 md:p-8">
           <h3 className="font-display font-semibold text-h3-mobile md:text-h3-desktop text-brand-navy mb-3">
             Why a pediatric dentist?
           </h3>
@@ -167,7 +190,7 @@ export default function AboutPage() {
           </div>
 
           {/* What "Wellness" means */}
-          <div className="max-w-3xl bg-morning-white rounded-card p-6 md:p-8 shadow-card space-y-3">
+          <div className="bg-morning-white rounded-card p-6 md:p-8 shadow-card space-y-3">
             <h3 className="font-display font-semibold text-h3-mobile text-brand-navy">
               What "Wellness" means in the name
             </h3>
@@ -178,6 +201,46 @@ export default function AboutPage() {
               and monitors wisdom teeth at 17. That continuity of care is what the clinic was built
               around.
             </p>
+          </div>
+        </div>
+      </Section>
+
+      {/* Videos */}
+      <Section bg="sky-mist" id="videos">
+        <div className="space-y-6">
+          <h2 className="font-display font-bold text-h2-mobile md:text-h2-desktop text-brand-navy">
+            Hear from us
+          </h2>
+          <div className="grid sm:grid-cols-3 gap-4">
+            {[
+              siteConfig.videos.clinicTour,
+              siteConfig.videos.doctorIntro,
+              siteConfig.videos.patientStory,
+            ].map((video) => (
+              <div key={video.id} className="relative rounded-card overflow-hidden aspect-video bg-brand-navy/10 group">
+                <img
+                  src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
+                  alt={`Play video: ${video.title}`}
+                  className="w-full h-full object-cover"
+                />
+                <a
+                  href={`https://www.youtube.com/watch?v=${video.id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Watch on YouTube: ${video.title}`}
+                  className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-brand-navy/20 group-hover:bg-brand-navy/35 transition-colors"
+                >
+                  <span className="flex items-center justify-center w-14 h-14 rounded-full bg-white/90 shadow-card group-hover:scale-105 transition-transform">
+                    <svg viewBox="0 0 24 24" className="w-7 h-7 fill-brand-pink ml-1" aria-hidden="true">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </span>
+                  <span className="font-body text-[13px] font-medium text-white drop-shadow text-center px-4">
+                    {video.title}
+                  </span>
+                </a>
+              </div>
+            ))}
           </div>
         </div>
       </Section>

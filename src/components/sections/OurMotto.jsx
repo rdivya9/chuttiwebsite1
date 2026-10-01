@@ -1,4 +1,5 @@
 import Section from '@/components/ui/Section';
+import JungleSideVine from '@/components/ui/JungleSideVine';
 
 // Using Nandha R.'s review theme: explains, child comfortable — a short confident quote
 // Full review text is in reviews.js; this is a safe excerpt that captures the theme.
@@ -10,9 +11,10 @@ const PULL_QUOTE = {
 export default function OurMotto() {
   return (
     <Section bg="sky-mist" id="our-motto">
-      <div className="max-w-3xl mx-auto text-center space-y-8">
-        <h2 className="font-display font-bold text-h2-mobile md:text-h2-desktop text-brand-navy">
-          A great dental experience — not just a dental treatment.
+      <JungleSideVine>
+      <div className="max-w-3xl mx-auto space-y-10">
+        <h2 className="font-display font-extrabold text-[28px] md:text-[44px] lg:text-[52px] text-brand-navy leading-[1.05]">
+          A great dental experience —<br className="hidden md:block" /> not just a dental treatment.
         </h2>
 
         <p className="font-body text-body-sm md:text-body-lg text-brand-navy/75 leading-relaxed">
@@ -23,8 +25,20 @@ export default function OurMotto() {
           hurts, but a dental home across the whole of childhood.
         </p>
 
+        {/* Doctor motto — typographic centrepiece */}
+        <div className="relative py-2">
+          <blockquote className="space-y-3">
+            <p className="font-display font-bold text-[22px] md:text-[32px] text-brand-pink leading-snug">
+              Prevent early. Treat gently.<br className="hidden md:block" /> Create a positive dental experience.
+            </p>
+            <footer className="font-body text-[15px] text-brand-navy/50">
+              — Dr. Bhuvanesswari S., MDS
+            </footer>
+          </blockquote>
+        </div>
+
         {/* Pull quote */}
-        <figure className="bg-morning-white rounded-card p-6 md:p-8 shadow-card text-left">
+        <figure className="bg-morning-white rounded-card p-6 md:p-8 shadow-card">
           <blockquote className="font-body text-body-sm md:text-body-lg text-brand-navy/80 italic leading-relaxed">
             "{PULL_QUOTE.text}"
           </blockquote>
@@ -32,15 +46,8 @@ export default function OurMotto() {
             — {PULL_QUOTE.attribution}
           </figcaption>
         </figure>
-
-        {/* Doctor motto */}
-        <p className="font-display font-semibold text-[18px] md:text-[22px] text-brand-pink leading-snug">
-          "Prevent early. Treat gently. Create a positive dental experience."
-        </p>
-        <p className="font-body text-meta-lg text-brand-navy/50">
-          — Dr. Bhuvanesswari S., MDS
-        </p>
       </div>
+      </JungleSideVine>
     </Section>
   );
 }

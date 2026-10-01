@@ -38,7 +38,6 @@ export default function ServicesOverview() {
                 'group flex flex-col gap-4 p-5 bg-morning-white rounded-card border border-brand-navy/8',
                 'hover:border-brand-pink/30 hover:shadow-card transition-all duration-200',
                 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2',
-                // Last row: 3 cards centred → handled by grid auto placement
                 i >= 4 ? 'lg:col-start-auto' : '',
               ].join(' ')}
             >
@@ -65,14 +64,23 @@ export default function ServicesOverview() {
               </span>
             </Link>
           ))}
-        </div>
 
-        <div className="text-center">
+          {/* 8th tile — All services CTA */}
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 font-body font-medium text-brand-navy/70 text-[15px] hover:text-brand-pink transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy rounded"
+            className="group flex flex-col items-center justify-center gap-4 p-5 rounded-card border border-brand-navy/8 bg-morning-white hover:border-brand-pink/30 hover:shadow-card transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2 min-h-[200px]"
           >
-            See all services <ArrowRight size={15} aria-hidden="true" />
+            <div className="w-14 h-14 rounded-full bg-brand-pink/10 flex items-center justify-center group-hover:bg-brand-pink/20 transition-colors">
+              <ArrowRight size={24} className="text-brand-pink" aria-hidden="true" />
+            </div>
+            <div className="text-center space-y-1">
+              <p className="font-display font-semibold text-[16px] text-brand-navy group-hover:text-brand-pink transition-colors">
+                All Services
+              </p>
+              <p className="font-body text-[13px] text-brand-navy/55 leading-relaxed">
+                Explore everything we offer for your child
+              </p>
+            </div>
           </Link>
         </div>
       </div>

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import PageHeaderScene from '@/components/ui/PageHeaderScene';
 import Section from '@/components/ui/Section';
 import { blogPosts } from '@/data/blogPosts';
+import siteConfig from '@/data/siteConfig';
 
 export const metadata = {
   title: 'Parent Guides & Myth vs Fact',
@@ -37,7 +38,7 @@ export default function BlogPage() {
                 <Link
                   key={post.slug}
                   href={`/blog/${post.slug}`}
-                  className="group flex flex-col gap-3 p-5 bg-morning-white rounded-card border border-brand-navy/8 hover:border-brand-pink/30 hover:shadow-card transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
+                  className="group flex flex-col gap-3 p-5 bg-[#FEFBF0] rounded-card border border-[#F0E8C8] hover:border-brand-pink/30 hover:shadow-card hover:bg-[#FDF8E8] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
                 >
                   <div className="flex items-center justify-between">
                     <span className="font-body text-[11px] font-semibold text-brand-pink uppercase tracking-wide">
@@ -97,6 +98,44 @@ export default function BlogPage() {
             <p className="font-body text-[13px] text-brand-navy/40">
               More cards coming soon.
             </p>
+          </div>
+
+          {/* Hear from us — 3 videos */}
+          <div className="space-y-6">
+            <h2 className="font-display font-bold text-h2-mobile md:text-h2-desktop text-brand-navy">
+              Hear from us
+            </h2>
+            <div className="grid sm:grid-cols-3 gap-4">
+              {[
+                siteConfig.videos.clinicTour,
+                siteConfig.videos.doctorIntro,
+                siteConfig.videos.patientStory,
+              ].map((video) => (
+                <div key={video.id} className="relative rounded-card overflow-hidden aspect-video bg-brand-navy/10 group">
+                  <img
+                    src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
+                    alt={`Play video: ${video.title}`}
+                    className="w-full h-full object-cover"
+                  />
+                  <a
+                    href={`https://www.youtube.com/watch?v=${video.id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Watch on YouTube: ${video.title}`}
+                    className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-brand-navy/20 group-hover:bg-brand-navy/35 transition-colors"
+                  >
+                    <span className="flex items-center justify-center w-14 h-14 rounded-full bg-white/90 shadow-card group-hover:scale-105 transition-transform">
+                      <svg viewBox="0 0 24 24" className="w-7 h-7 fill-brand-pink ml-1" aria-hidden="true">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </span>
+                    <span className="font-body text-[13px] font-medium text-white drop-shadow text-center px-4">
+                      {video.title}
+                    </span>
+                  </a>
+                </div>
+              ))}
+            </div>
           </div>
 
         </div>
