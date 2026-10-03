@@ -76,7 +76,7 @@ export default function Footer() {
       <div className="relative z-10 flex flex-col items-center pt-6 pb-8 px-5">
         <IllustrationImage
           name="footer-goodnight"
-          className="w-56 md:w-72 h-auto mb-4"
+          className="w-80 md:w-[420px] h-auto mb-4"
           aria-hidden
         />
         <p className="text-white/70 font-body text-[14px] text-center italic">
