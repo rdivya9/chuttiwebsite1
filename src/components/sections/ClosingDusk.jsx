@@ -22,30 +22,27 @@ export default function ClosingDusk() {
       }}
       aria-label="Closing call to action"
     >
-      {/* Dusk canopy silhouette — Phase 5: real dusk-canopy illustration */}
-      <div
-        aria-hidden="true"
-        className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none"
-        style={{
-          background: 'linear-gradient(to bottom, transparent, #0F1C40)',
-        }}
-      />
+      {/* Dusk canopy silhouette */}
+      <div aria-hidden="true" className="absolute bottom-0 left-0 right-0 pointer-events-none">
+        <IllustrationImage name="dusk-canopy" alt="" className="hidden md:block w-full h-auto" />
+        <IllustrationImage name="dusk-canopy-mobile" alt="" className="md:hidden w-full h-auto" />
+      </div>
 
-      {/* Balloons — Phase 5: ambient float animation */}
+      {/* Balloons */}
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute left-[10%] top-[15%] opacity-70">
-          <IllustrationImage name="balloon-1" alt="" className="w-16 h-auto md:w-20" />
+        <div className="absolute left-[8%] top-[10%]">
+          <IllustrationImage name="balloon-1" alt="" className="w-24 h-auto md:w-32" />
         </div>
-        <div className="absolute right-[12%] top-[10%] opacity-60">
-          <IllustrationImage name="balloon-2" alt="" className="w-14 h-auto md:w-18" />
+        <div className="absolute right-[10%] top-[8%]">
+          <IllustrationImage name="balloon-2" alt="" className="w-20 h-auto md:w-28" />
         </div>
-        <div className="absolute left-[25%] top-[5%] opacity-50">
-          <IllustrationImage name="balloon-3" alt="" className="w-12 h-auto md:w-16" />
+        <div className="absolute left-[28%] top-[4%]">
+          <IllustrationImage name="balloon-3" alt="" className="w-16 h-auto md:w-24" />
         </div>
       </div>
 
-      {/* Dusk group watching — Phase 5: real illustration */}
-      <div aria-hidden="true" className="absolute bottom-24 left-1/2 -translate-x-1/2 w-48 md:w-64 opacity-70 pointer-events-none">
+      {/* Dusk group watching */}
+      <div aria-hidden="true" className="absolute bottom-20 left-1/2 -translate-x-1/2 w-64 md:w-96 pointer-events-none">
         <IllustrationImage
           name="dusk-group-watching"
           alt=""
