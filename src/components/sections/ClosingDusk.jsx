@@ -43,10 +43,10 @@ export default function ClosingDusk() {
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center text-center px-5 pt-16 pb-8 max-w-2xl mx-auto w-full">
-        <h2 className="font-display font-extrabold text-h2-mobile md:text-h2-desktop text-white leading-[1.05] mb-3">
+        <h2 className="font-display font-extrabold text-h2-mobile md:text-h2-desktop text-brand-navy leading-[1.05] mb-3">
           Healthy Teeth. Happier Tomorrows.
         </h2>
-        <p className="font-body text-body-sm text-white/75 mb-6">
+        <p className="font-body text-body-sm text-brand-navy/70 mb-6">
           {siteConfig.hours.display} · Pallikaranai, Chennai
         </p>
 
