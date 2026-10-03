@@ -54,7 +54,7 @@ export default function ClosingDusk() {
         <IllustrationImage
           name="dusk-group-watching"
           alt=""
-          className="w-[340px] md:w-[580px] h-auto"
+          className="w-80 md:w-[420px] h-auto"
           aria-hidden
         />
 
