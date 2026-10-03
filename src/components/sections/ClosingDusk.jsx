@@ -36,7 +36,7 @@ export default function ClosingDusk() {
         <div className="absolute right-[10%] top-[8%]">
           <IllustrationImage name="balloon-2" alt="" className="w-20 h-auto md:w-28" />
         </div>
-        <div className="absolute left-[28%] top-[4%]">
+        <div className="absolute left-[28%] top-[4%] opacity-40">
           <IllustrationImage name="balloon-3" alt="" className="w-16 h-auto md:w-24" />
         </div>
       </div>
