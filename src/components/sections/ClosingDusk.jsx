@@ -58,7 +58,7 @@ export default function ClosingDusk() {
           aria-hidden
         />
 
-        <div className="flex flex-col sm:flex-row gap-3 justify-center mt-6">
+        <div className="flex flex-col sm:flex-row gap-3 justify-center -mt-4">
           <button
             onClick={() => openBooking()}
             className="px-8 py-4 bg-brand-pink text-white font-body font-semibold text-btn-lg rounded-pill hover:bg-[#c41d63] transition-colors shadow-modal focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
