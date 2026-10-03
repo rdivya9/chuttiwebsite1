@@ -522,7 +522,7 @@ export const services = [
     slug:               "clear-aligners",
     menuLabel:          "Aligners",
     title:              "Clear Aligners for Kids & Teens",
-    navGroup:           "aligners",              // Appears directly in header nav, not under Services
+    navGroup:           "services",
     headerIllustration: "aligners-teen-giraffe",
     headerTint:         "sun-yellow",
     intro:

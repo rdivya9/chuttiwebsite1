@@ -20,6 +20,7 @@ const serviceLinks = [
   { label: 'Gentle Dentistry & Sedation',   href: '/services/gentle-dentistry-sedation',   icon: HeartHandshake },
   { label: 'Special Needs Dentistry',       href: '/services/special-needs-dentistry',     icon: Smile },
   { label: 'Laser Dentistry',               href: '/services/laser-dentistry',             icon: Zap },
+  { label: 'Clear Aligners',               href: '/services/clear-aligners',              icon: Microscope },
 ];
 
 // ── About dropdown items ─────────────────────────────────────────────────
@@ -237,13 +238,6 @@ export default function Header() {
             <DesktopDropdown label="Services" links={serviceLinks} columns={2} />
 
             <Link
-              href="/services/clear-aligners"
-              className="px-3 py-2 text-[15px] font-body font-medium text-brand-navy/80 hover:text-brand-pink hover:bg-brand-pink/5 rounded-lg transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-1"
-            >
-              Aligners
-            </Link>
-
-            <Link
               href="/first-visit"
               className="px-3 py-2 text-[15px] font-body font-medium text-brand-navy/80 hover:text-brand-pink hover:bg-brand-pink/5 rounded-lg transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-1"
             >
@@ -354,7 +348,6 @@ export default function Header() {
               {[
                 { label: 'Home',            href: '/' },
                 { label: 'Services',        href: '/services' },
-                { label: 'Aligners',        href: '/services/clear-aligners' },
                 { label: 'First Visit',     href: '/first-visit' },
                 { label: 'About',           href: '/about' },
                 { label: 'Blog',            href: '/blog' },
