@@ -41,24 +41,24 @@ export default function ClosingDusk() {
         </div>
       </div>
 
-      {/* Dusk group watching */}
-      <div aria-hidden="true" className="absolute bottom-20 left-1/2 -translate-x-1/2 w-64 md:w-96 pointer-events-none">
+      {/* Content */}
+      <div className="relative z-10 flex flex-col items-center text-center px-5 pt-16 pb-8 max-w-2xl mx-auto w-full">
+        <h2 className="font-display font-extrabold text-h2-mobile md:text-h2-desktop text-white leading-[1.05] mb-3">
+          Healthy Teeth. Happier Tomorrows.
+        </h2>
+        <p className="font-body text-body-sm text-white/75 mb-6">
+          {siteConfig.hours.display} · Pallikaranai, Chennai
+        </p>
+
+        {/* Group watching — in flow so buttons sit below */}
         <IllustrationImage
           name="dusk-group-watching"
           alt=""
-          className="w-full h-auto"
+          className="w-80 md:w-[420px] h-auto"
+          aria-hidden
         />
-      </div>
 
-      {/* Content */}
-      <div className="relative z-10 text-center px-5 py-16 space-y-6 max-w-lg mx-auto">
-        <h2 className="font-display font-extrabold text-h2-mobile md:text-h2-desktop text-white leading-[1.05]">
-          Healthy Teeth. Happier Tomorrows.
-        </h2>
-        <p className="font-body text-body-sm text-white/75">
-          {siteConfig.hours.display} · Pallikaranai, Chennai
-        </p>
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+        <div className="flex flex-col sm:flex-row gap-3 justify-center mt-6">
           <button
             onClick={() => openBooking()}
             className="px-8 py-4 bg-brand-pink text-white font-body font-semibold text-btn-lg rounded-pill hover:bg-[#c41d63] transition-colors shadow-modal focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
