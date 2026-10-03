@@ -99,7 +99,7 @@ const illustrations = {
   "footer-leaf-edge-mobile":  { path: "/illustrations/footer-leaf-edge-mobile.png",  width: 1400, height: 300,  alt: "",                          status: "placeholder" },
   "footer-giraffe-peek":      { path: "/illustrations/footer-giraffe-peek.png",      width: 700,  height: 700,  alt: "A giraffe peeking over the jungle edge in soft moonlight", status: "placeholder" },
   "footer-monkey-peek":       { path: "/illustrations/footer-monkey-peek.png",       width: 700,  height: 700,  alt: "A monkey peeking over the jungle edge with a sleepy smile", status: "placeholder" },
-  "footer-goodnight":         { path: "/illustrations/footer-goodnight.png",         width: 1400, height: 700,  alt: "The four children and their animal friends waving goodnight, each holding a toothbrush", status: "placeholder" },
+  "footer-goodnight":         { path: "/illustrations/footer-goodnight.png",         width: 1400, height: 700,  alt: "The four children and their animal friends waving goodnight, each holding a toothbrush", status: "ready" },
   "dino-peek":                { path: "/illustrations/dino-peek.png",                width: 700,  height: 700,  alt: "The friendly dino from the clinic wall peeking out curiously", status: "placeholder" },
   "dino-sitting":             { path: "/illustrations/dino-sitting.png",             width: 700,  height: 700,  alt: "The friendly dino from the clinic wall sitting contentedly", status: "placeholder" },
   "dino-sleeping":            { path: "/illustrations/dino-sleeping.png",            width: 800,  height: 500,  alt: "The friendly dino from the clinic wall curled up asleep", status: "placeholder" },

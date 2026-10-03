@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Phone, MapPin, Clock, Star } from 'lucide-react';
 import siteConfig from '@/data/siteConfig';
+import IllustrationImage from '@/components/ui/IllustrationImage';
 
 // ── Firefly/star positions — fixed so they look intentional ──────────────
 const STARS = [
@@ -73,13 +74,11 @@ export default function Footer() {
 
       {/* ── Goodnight scene + tagline ─────────────────────────────────── */}
       <div className="relative z-10 flex flex-col items-center pt-6 pb-8 px-5">
-        {/* TODO Phase 5: replace with IllustrationImage name="footer-goodnight" */}
-        <div
-          aria-hidden="true"
-          className="w-48 h-20 bg-brand-navy/40 rounded-card border border-brand-navy/20 flex items-center justify-center mb-4"
-        >
-          <span className="text-white/30 text-xs font-body">footer-goodnight.png</span>
-        </div>
+        <IllustrationImage
+          name="footer-goodnight"
+          className="w-56 md:w-72 h-auto mb-4"
+          aria-hidden
+        />
         <p className="text-white/70 font-body text-[14px] text-center italic">
           Brush before bed. Goodnight from the jungle.
         </p>
