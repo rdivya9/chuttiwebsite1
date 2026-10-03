@@ -18,7 +18,7 @@ export default function ClosingDusk() {
     <section
       className="relative w-full min-h-[70svh] md:min-h-[80svh] flex flex-col items-center justify-center overflow-hidden"
       style={{
-        background: 'linear-gradient(to bottom, #fff8f3 0%, #f5e6d8 40%, #e8c9b0 100%)',
+        background: 'linear-gradient(to bottom, #fff8f3 0%, #f5e6d8 30%, #6F5B9E 65%, #0F1C40 100%)',
       }}
       aria-label="Closing call to action"
     >
