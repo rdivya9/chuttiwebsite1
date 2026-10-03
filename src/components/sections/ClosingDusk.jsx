@@ -30,10 +30,10 @@ export default function ClosingDusk() {
 
       {/* Balloons */}
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute left-[8%] top-[10%]">
+        <div className="absolute left-[8%] top-[10%] opacity-80">
           <IllustrationImage name="balloon-1" alt="" className="w-24 h-auto md:w-32" />
         </div>
-        <div className="absolute right-[10%] top-[8%]">
+        <div className="absolute right-[10%] top-[8%] opacity-80">
           <IllustrationImage name="balloon-2" alt="" className="w-20 h-auto md:w-28" />
         </div>
         <div className="absolute left-[28%] top-[4%] opacity-40">
