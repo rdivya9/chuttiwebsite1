@@ -16,7 +16,7 @@ const visitSteps = [
   { number: '1', title: 'Arrive and settle in', body: "Time for your child to take in the clinic at their own pace. There's no rush and no pressure. Very young children can sit on a parent's lap for the whole visit." },
   { number: '2', title: 'Gentle check', body: 'A gentle look at teeth, gums, jaw and bite, and how they are developing for your child\'s age. Parents stay in the room throughout.' },
   { number: '3', title: 'Cavity-risk check (Caries-Risk Assessment)', body: 'A quick assessment of how likely your child is to develop cavities, so the prevention plan fits them specifically — not a generic handout.' },
-  { number: '4', title: 'Cleaning and fluoride if needed', body: 'X-rays only if there is a clinical reason to take them.' },
+  { number: '4', title: 'Scaling, cleaning and fluoride if needed', body: 'Professional cleaning (scaling) to remove plaque and tartar build-up, followed by fluoride if indicated. X-rays only if there is a clinical reason to take them.' },
   { number: '5', title: 'A sit-down with you', body: "Findings, brushing technique, feeding and diet, habits (thumb-sucking, pacifier use), and a clear prevention plan. Your questions answered." },
   { number: '6', title: 'Next check-up planned', body: 'Usually every six months — adjusted to your child\'s individual risk.' },
 ];

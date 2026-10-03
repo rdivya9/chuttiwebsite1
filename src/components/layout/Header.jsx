@@ -6,7 +6,7 @@ import Image from 'next/image';
 import {
   ChevronDown, Menu, X, MessageCircle,
   Shield, Zap, HeartHandshake, AlertTriangle,
-  Smile, Star, Microscope,
+  Smile, Star, Microscope, Moon, Dumbbell,
 } from 'lucide-react';
 import siteConfig from '@/data/siteConfig';
 import { useBooking } from '@/components/booking/BookingProvider';
@@ -20,7 +20,9 @@ const serviceLinks = [
   { label: 'Gentle Dentistry & Sedation',   href: '/services/gentle-dentistry-sedation',   icon: HeartHandshake },
   { label: 'Special Needs Dentistry',       href: '/services/special-needs-dentistry',     icon: Smile },
   { label: 'Laser Dentistry',               href: '/services/laser-dentistry',             icon: Zap },
-  { label: 'Clear Aligners',               href: '/services/clear-aligners',              icon: Microscope },
+  { label: 'Sleep Dentistry',               href: '/services/sleep-dentistry',             icon: Moon },
+  { label: 'Sports Dentistry',              href: '/services/sports-dentistry',            icon: Dumbbell },
+  { label: 'Aligners & Braces',             href: '/services/clear-aligners',              icon: Microscope },
 ];
 
 // ── About dropdown items ─────────────────────────────────────────────────
@@ -346,9 +348,11 @@ export default function Header() {
             {/* Drawer nav items */}
             <nav aria-label="Mobile navigation" className="flex-1 px-4 py-4 space-y-1">
               {[
-                { label: 'Home',            href: '/' },
-                { label: 'Services',        href: '/services' },
-                { label: 'First Visit',     href: '/first-visit' },
+                { label: 'Home',             href: '/' },
+                { label: 'Services',         href: '/services' },
+                { label: 'Sleep Dentistry',  href: '/services/sleep-dentistry' },
+                { label: 'Sports Dentistry', href: '/services/sports-dentistry' },
+                { label: 'First Visit',      href: '/first-visit' },
                 { label: 'About',           href: '/about' },
                 { label: 'Blog',            href: '/blog' },
                 { label: 'Contact',         href: '/contact' },

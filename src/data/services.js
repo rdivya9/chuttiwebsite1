@@ -134,7 +134,7 @@ export const services = [
         heading:  "Tooth caps for children (pediatric crowns)",
         ages:     "All ages",
         what:
-          "When a tooth is too damaged for a simple filling, a crown (tooth cap) covers and protects the whole tooth. Pediatric crowns are designed to fit children's smaller teeth and stay in place until the baby tooth falls out naturally.",
+          "When a tooth is too damaged for a simple filling, a crown (tooth cap) covers and protects the whole tooth. For baby teeth, stainless steel crowns are the most durable option — they are strong, long-lasting, and well-suited to a child's active mouth. Tooth-coloured alternatives are also available depending on which tooth is involved.",
         why:
           "A crown restores the function of the tooth and prevents further breakdown, which can affect the child's ability to chew and the health of neighbouring teeth.",
         expect:
@@ -381,13 +381,27 @@ export const services = [
         heading:  "Laughing gas, in-house (nitrous oxide sedation)",
         ages:     "Assessed individually; suitable for most ages",
         what:
-          "Laughing gas (nitrous oxide) is breathed through a small, comfortable nose mask. It helps an anxious child feel calm and relaxed while staying completely awake and aware. It is not a general anaesthetic — your child can respond to instructions throughout the appointment. The effect wears off within a few minutes of removing the mask.",
+          "Laughing gas (nitrous oxide) is breathed through a small, comfortable nose mask. It helps an anxious child feel calm and relaxed while staying completely awake and aware. Your child can respond to instructions throughout the appointment. The effect wears off within a few minutes of removing the mask.",
         why:
           "For children who need more than behaviour guidance alone — whether from anxiety, a difficult experience elsewhere, or a longer procedure — laughing gas makes treatment safe and manageable without the risks of deeper sedation.",
         expect:
           "Used only after clinical assessment — not every child who is nervous needs it. Dr. Bhuvanesswari will discuss it with you first, explain what your child will experience, and answer your questions. The equipment is in-house, so there is no referral needed.",
         importantNote:
-          "Laughing gas helps an anxious child feel calm while staying awake and relaxed. It is not a sleep medication. General anaesthesia is not offered at this clinic.",
+          "Laughing gas helps an anxious child feel calm while staying awake and relaxed. It is not a sleep medication — your child remains fully conscious and responsive throughout.",
+      },
+      {
+        id:       "conscious-sedation",
+        heading:  "Conscious sedation — deeper calm, in-house",
+        ages:     "Assessed individually based on clinical need",
+        what:
+          "A deeper level of sedation than laughing gas, delivered using a sedation machine at the clinic. Your child is relaxed and drowsy throughout but remains awake and able to respond. Used when a child needs more support than laughing gas alone provides — for a longer procedure, higher levels of anxiety, or where a calm, still state makes treatment safer and more comfortable.",
+        why:
+          "Some procedures are complex or lengthy, and some children need more than laughing gas can offer. Conscious sedation bridges that gap — at the clinic, without the logistics of a hospital visit.",
+        expect:
+          "Only after a thorough clinical assessment. Dr. Bhuvanesswari will explain whether conscious sedation is right for your child, what the visit involves, and how to prepare. There are specific guidelines about eating and drinking beforehand, which she will go through with you.",
+        importantNote:
+          "Your child stays awake and responsive throughout — this is not general anaesthesia. A recovery period at the clinic follows the procedure before going home.",
+        linkTo: "/services/sleep-dentistry",
       },
       {
         id:       "special-needs-brief",
@@ -466,7 +480,125 @@ export const services = [
   },
 
   // ─────────────────────────────────────────────────────────────────────────
-  // 7. Laser Dentistry & Frenectomy
+  // 7. Sleep Dentistry & Full Mouth Rehabilitation
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    slug:               "sleep-dentistry",
+    menuLabel:          "Sleep Dentistry",
+    title:              "Sleep Dentistry & Full Mouth Rehabilitation",
+    navGroup:           "services",
+    headerIllustration: "svc-sleep-bear",
+    headerTint:         "dusk-violet",
+    intro:
+      "For children who need more support than behaviour guidance or laughing gas alone — conscious sedation in-house, and full mouth rehabilitation under general anaesthesia at a hospital for the most complex cases.",
+    treatments: [
+      {
+        id:       "conscious-sedation-full",
+        heading:  "Conscious sedation — in-house, deeper calm",
+        ages:     "Assessed individually based on clinical need",
+        what:
+          "A deeper level of sedation than laughing gas, using a sedation machine at the clinic. Your child is relaxed and drowsy throughout but remains awake and able to respond. Used when laughing gas alone is not enough — for longer procedures, high dental anxiety, or where a calm, still state makes treatment safer.",
+        why:
+          "Some children and some procedures need more than laughing gas can offer. Conscious sedation allows Dr. Bhuvanesswari to complete treatment safely and comfortably, at the clinic, without a hospital visit.",
+        expect:
+          "A thorough clinical assessment comes first. Dr. Bhuvanesswari explains whether conscious sedation is the right choice, what the session involves, how to prepare your child, and the specific guidelines on eating and drinking beforehand. A recovery period at the clinic follows before going home.",
+        importantNote:
+          "Your child stays awake and responsive throughout. This is not general anaesthesia — the effects are reversible and wear off during the clinic recovery period.",
+      },
+      {
+        id:       "full-mouth-rehab-ga",
+        heading:  "Full mouth rehabilitation under general anaesthesia (GA)",
+        ages:     "Assessed individually; usually young children or children with complex needs",
+        what:
+          "For children with extensive dental problems who cannot cooperate with treatment even with sedation — all necessary dental work is completed in a single session under general anaesthesia at a hospital. Dr. Bhuvanesswari is present throughout and carries out the dental treatment while an anaesthesiologist manages the anaesthesia.",
+        why:
+          "Some children — because of very young age, severe dental anxiety, medical needs, or developmental conditions — cannot safely or comfortably manage multiple dental appointments. Completing everything in one visit under GA avoids repeated distress and gives the child a completely fresh start with their dental health.",
+        expect:
+          "A dedicated consultation to assess whether full mouth rehab under GA is the right approach. Dr. Bhuvanesswari goes through the full treatment plan with you, explains exactly what will happen, coordinates with the hospital, and is with your child throughout the procedure.",
+        importantNote:
+          "General anaesthesia carries medical risks that are discussed in full at the consultation. The decision is made carefully and only when it is the best clinical option for the child.",
+      },
+    ],
+    faqs: [
+      {
+        q: "What is the difference between laughing gas, conscious sedation and GA?",
+        a: "Laughing gas (nitrous oxide) is breathed through a nose mask — your child stays fully awake and relaxed, and the effect wears off in minutes. Conscious sedation goes deeper: your child is drowsy and very calm but still awake and responsive, using a sedation machine at the clinic. General anaesthesia (GA) means your child is completely unconscious; it is carried out at a hospital with an anaesthesiologist. Dr. Bhuvanesswari uses the lightest option that allows safe, comfortable treatment for your child's specific situation.",
+      },
+      {
+        q: "How do I know if my child needs conscious sedation or GA?",
+        a: "Dr. Bhuvanesswari assesses each child individually. Most children are managed well with behaviour guidance and laughing gas. Conscious sedation is considered when a child's anxiety or the complexity of treatment means laughing gas is not enough. GA is reserved for the most complex cases — extensive dental needs that cannot be safely treated in stages, or children who cannot cooperate even with sedation. She will explain her reasoning and discuss the options with you at the consultation.",
+      },
+      {
+        q: "Is conscious sedation safe for children?",
+        a: "Yes. Conscious sedation in pediatric dentistry is well-established and safe when properly assessed and monitored. Dr. Bhuvanesswari follows clinical protocols for patient selection, monitoring during the procedure, and recovery time. She will go through the guidelines with you, including what your child should eat and drink before the appointment.",
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // 8. Sports Dentistry & Mouth Protection
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    slug:               "sports-dentistry",
+    menuLabel:          "Sports Dentistry",
+    title:              "Sports Dentistry & Mouth Protection",
+    navGroup:           "services",
+    headerIllustration: "svc-sports-lion",
+    headerTint:         "sun-yellow",
+    intro:
+      "Sports and active play are part of childhood. Protecting your child's teeth during sport — and knowing what to do when an injury happens — is part of complete dental care.",
+    treatments: [
+      {
+        id:       "sports-trauma-prevention",
+        heading:  "Sports trauma prevention — counselling and assessment",
+        ages:     "All ages",
+        what:
+          "A check of your child's teeth, bite and gum structure to assess their risk of dental injury during sport or active play, along with guidance on how to protect them. For children who play contact sport or are active at any age, knowing the risk and taking simple steps can prevent injuries that are painful, expensive and sometimes irreversible.",
+        why:
+          "Dental injuries are among the most common sport-related injuries in children. A knocked-out, chipped or fractured tooth can need treatment that lasts years — and most of these injuries are preventable.",
+        expect:
+          "A straightforward assessment as part of a routine check-up or a dedicated appointment. Dr. Bhuvanesswari will tell you what she sees and what protection makes sense for your child's sport and dental situation.",
+      },
+      {
+        id:       "mouth-guards",
+        heading:  "Custom-fitted mouth guards",
+        ages:     "All ages",
+        what:
+          "A mouth guard made from an impression of your child's own teeth — fitted precisely to their mouth, not an off-the-shelf tray. It protects the teeth, lips, gums and jaw during contact sport and high-impact activity.",
+        why:
+          "Custom mouth guards fit properly, stay in place, and are far more comfortable than boil-and-bite guards from a sports shop. Children who can breathe and speak easily in a guard are the ones who actually wear it.",
+        expect:
+          "An impression is taken at one appointment; the guard is ready at the next. Dr. Bhuvanesswari will advise on how to care for it and when to replace it as your child grows and their teeth change.",
+      },
+      {
+        id:       "sports-trauma-management",
+        heading:  "Dental injury management",
+        ages:     "All ages",
+        what:
+          "Assessment and treatment of dental injuries from sport or active play — a chipped tooth, a tooth pushed out of position, or a tooth knocked out completely. Quick action and the right first-aid steps can make a significant difference to the outcome.",
+        why:    null,
+        expect: null,
+        linkTo: "/services/dental-emergencies",
+      },
+    ],
+    faqs: [
+      {
+        q: "Does my child need a mouth guard for sport?",
+        a: "Any child who plays contact sport — cricket, football, basketball, martial arts, cycling, gymnastics — benefits from a mouth guard. Even sports that seem low-risk can involve falls or collisions. A custom-fitted guard is the most effective option and the most likely to be worn consistently.",
+      },
+      {
+        q: "Can I just buy a mouth guard from a sports shop?",
+        a: "Over-the-counter boil-and-bite guards offer some protection, but they fit poorly, are uncomfortable, and children often take them out during play. A custom guard made from your child's own teeth fits properly, stays in place, and is much more comfortable. For children playing sport regularly, a custom guard is worth it.",
+      },
+      {
+        q: "My child's tooth was knocked out during a match. What should I do?",
+        a: "If it is a permanent tooth: pick it up by the crown (not the root), do not scrub it, store it in cold milk or ask your child to hold it gently between the cheek and gum, and come immediately. If it is a baby tooth: do not put it back in — apply gentle pressure if the gum is bleeding and WhatsApp or call for a same-day appointment. See the Dental Injuries page for full first-aid steps.",
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // 9. Laser Dentistry & Frenectomy
   // ─────────────────────────────────────────────────────────────────────────
   {
     slug:               "laser-dentistry",
@@ -520,16 +652,16 @@ export const services = [
   // ─────────────────────────────────────────────────────────────────────────
   {
     slug:               "clear-aligners",
-    menuLabel:          "Aligners",
-    title:              "Clear Aligners for Kids & Teens",
+    menuLabel:          "Aligners & Braces",
+    title:              "Clear Aligners & Braces for Kids & Teens",
     navGroup:           "services",
     headerIllustration: "aligners-teen-giraffe",
     headerTint:         "sun-yellow",
     intro:
-      "Clear, removable aligners that gradually straighten teeth, planned by someone who has watched your child's teeth grow. Available for children of any age who clinically need them — not only teenagers.",
+      "Clear aligners or braces — the right orthodontic treatment for your child, planned by someone who has watched their teeth grow. Available for children of any age who clinically need them, not only teenagers.",
     signatureLines: [
       "Straighter smiles, planned by someone who has watched them grow.",
-      "The right treatment, at the right age — from early guidance to clear aligners.",
+      "The right treatment, at the right age — aligners or braces, planned around how your child is growing.",
     ],
     treatments: [
       {
@@ -564,13 +696,24 @@ export const services = [
         expect: null,
       },
       {
+        id:       "braces",
+        heading:  "Traditional braces for children and teens",
+        ages:     "Children and teens of any age who clinically need them",
+        what:
+          "Metal or ceramic brackets fixed to the teeth, connected by wires that apply controlled pressure to move teeth into the correct position. Braces are available for children of any age who need them — and for some types of tooth movement, they remain the more effective option.",
+        why:
+          "Aligners and braces are not interchangeable. For certain complex movements, spacing issues or bite corrections, fixed braces achieve better results more reliably. Dr. Bhuvanesswari will tell you honestly which approach fits your child's specific situation — and when aligners are the better choice.",
+        expect:
+          "A dedicated consultation covers your child's dental development, the treatment options, how long treatment is likely to take, and what to expect during it. You leave with a clear picture of the recommended plan and the reasons behind it.",
+      },
+      {
         id:       "exclusive-teen-clinic",
         heading:  "Exclusive Teen Clinic",
         ages:     "13–18",
         what:
           "The Exclusive Teen Clinic is Dr. Bhuvanesswari's name for her approach to caring for teenage patients. Teens are spoken to directly, involved in decisions about their own treatment, and never talked down to. This runs in the same clinic, in the same hours — not a separate facility or separate timings.",
         why:
-          "A 15-year-old needs a different conversation than a 5-year-old. Clear aligners for teens are planned around their stage of dental development, lifestyle and compliance.",
+          "A 15-year-old needs a different conversation than a 5-year-old. Orthodontic treatment for teens — whether aligners or braces — is planned around their stage of dental development, lifestyle and compliance.",
         expect: null,
       },
     ],

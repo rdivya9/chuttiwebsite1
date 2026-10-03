@@ -385,10 +385,10 @@ Address, landmark (near DAV School, Pallikaranai), map embed, phone, timings (Al
 - "Anna Nagar" on its own (use Pallikaranai as the locality; "West Anna Nagar" only inside the street address)
 - Payment modes or pricing anywhere outside the payment FAQ
 - Room-by-room interior descriptions
-- General anaesthesia (do not mention it anywhere, including FAQs)
+- General anaesthesia: mention **only** in the context of full mouth rehabilitation under GA (confirmed service). Do not mention GA casually or in FAQs about sedation. Always present it as a hospital procedure, not an in-clinic one.
 
 **Handle with care**
-- **Laughing gas:** "laughing gas" is the standard parent-facing term on pediatric dental websites, paired with "nitrous oxide sedation". Always add: used after clinical assessment; child stays awake and relaxed; never "puts your child to sleep". Do not compare it to general anaesthesia (GA is not mentioned on the site).
+- **Laughing gas:** "laughing gas" is the standard parent-facing term on pediatric dental websites, paired with "nitrous oxide sedation". Always add: used after clinical assessment; child stays awake and relaxed; never "puts your child to sleep". Keep it clearly distinct from conscious sedation and GA.
 - **Frenectomy:** "evaluated individually; treatment is based on clinical findings and functional concerns". Do not promise improvements to feeding, speech or sleep.
 - **Special healthcare needs:** say "experience with". No medical claims about specific conditions. Person-first, dignified language ("children with special healthcare needs", never "special children" or "handicapped").
 - **AAPD:** "follows AAPD recommendations", never "AAPD-certified" or "AAPD member".
