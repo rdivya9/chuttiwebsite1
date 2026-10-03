@@ -74,12 +74,12 @@ const illustrations = {
   "aligner-tray":             { path: "/illustrations/aligner-tray.png",             width: 900,  height: 600,  alt: "A clear dental aligner tray illustrated softly",  status: "placeholder" },
   "reviews-sunbird":          { path: "/illustrations/reviews-sunbird.png",          width: 500,  height: 500,  alt: "A tiny sunbird perched on a twig",               status: "placeholder" },
   "firstvisit-toddler-monkey":{ path: "/illustrations/firstvisit-toddler-monkey.png",width: 1200, height: 1400, alt: "Kuttan looking up curiously at a monkey hanging from a branch", status: "placeholder" },
-  "dusk-canopy":              { path: "/illustrations/dusk-canopy.png",              width: 3200, height: 800,  alt: "",                          status: "placeholder" },
-  "dusk-canopy-mobile":       { path: "/illustrations/dusk-canopy-mobile.png",       width: 1400, height: 600,  alt: "",                          status: "placeholder" },
-  "dusk-group-watching":      { path: "/illustrations/dusk-group-watching.png",      width: 1800, height: 900,  alt: "The four children and their animal friends sitting together on a hill, watching the evening sky", status: "placeholder" },
-  "balloon-1":                { path: "/illustrations/balloon-1.png",                width: 700,  height: 900,  alt: "",                          status: "placeholder" },
-  "balloon-2":                { path: "/illustrations/balloon-2.png",                width: 700,  height: 900,  alt: "",                          status: "placeholder" },
-  "balloon-3":                { path: "/illustrations/balloon-3.png",                width: 700,  height: 900,  alt: "",                          status: "placeholder" },
+  "dusk-canopy":              { path: "/illustrations/dusk-canopy.png",              width: 3200, height: 800,  alt: "",                          status: "ready" },
+  "dusk-canopy-mobile":       { path: "/illustrations/dusk-canopy-mobile.png",       width: 1400, height: 600,  alt: "",                          status: "ready" },
+  "dusk-group-watching":      { path: "/illustrations/dusk-group-watching.png",      width: 1800, height: 900,  alt: "The four children and their animal friends sitting together on a hill, watching the evening sky", status: "ready" },
+  "balloon-1":                { path: "/illustrations/balloon-1.png",                width: 700,  height: 900,  alt: "",                          status: "ready" },
+  "balloon-2":                { path: "/illustrations/balloon-2.png",                width: 700,  height: 900,  alt: "",                          status: "ready" },
+  "balloon-3":                { path: "/illustrations/balloon-3.png",                width: 700,  height: 900,  alt: "",                          status: "ready" },
 
   // ── Journey stops (T1) ──────────────────────────────────────────────────
   "journey-track":            { path: "/illustrations/journey-track.png",            width: 6000, height: 900,  alt: "",                          status: "placeholder" },
