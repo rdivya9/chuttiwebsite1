@@ -81,7 +81,7 @@ Infant oral-health assessment · first dental visit & dental home setup · indiv
 **Source-of-truth rule:** where the doctor's draft page and the doctor's bio conflict, **the bio wins**. Example: use "Caries-Risk Assessment (CRA)", not "CAMBRA".
 
 **Social proof**
-- Google rating: **5.0★ from 13 reviews** (all five-star). Store rating and count as config values so they can be updated as reviews grow.
+- Google rating: **5.0★** (all five-star). Store rating as a config value. Do not display the review count anywhere on the site — the number changes as reviews grow.
 
 **Contact & location**
 - Address: Plot No 1A, Gandhi Nagar 5th Street, West Anna Nagar, Pallikaranai, Chennai, Tamil Nadu 600100
@@ -149,7 +149,7 @@ Every persona below must have a clear path through the site: a section that spea
 
 ## 8. What Parents Say (Review Themes → Where They Prove the Narrative)
 
-Use **real reviews only** (clinic has confirmed consent to display them), quoted as written (light trimming allowed; no rewording). Attribute by first name + last initial. Show the **5.0★ · 13 Google reviews** badge with a link to the clinic's Google profile.
+Use **real reviews only** (clinic has confirmed consent to display them), quoted as written (light trimming allowed; no rewording). Attribute by first name + last initial. Show the **5.0★ Google reviews** badge with a link to the clinic's Google profile.
 
 | Theme parents repeat | Proves pillar | Strongest reviews to use |
 |---|---|---|
@@ -256,7 +256,7 @@ Right after the hero, a tight block of six facts that passes the "15-second test
 - **Every step explained.** To you and to your child, before anything is done (the theme parents mention most).
 - **Laughing gas in-house**, for children who need extra help staying calm, after assessment.
 - **Aligners, planned around how your child is growing.**
-- **5.0★ from 13 Google reviews.** Open all days, 11 AM – 8 PM.
+- **5.0★ on Google reviews.** Open all days, 11 AM – 8 PM.
 
 ### 3. Our Motto — A Great Experience, Not Just a Treatment
 A short, calm section on why a child's early dental experiences shape how they feel about dentists for years, and the goal of sending every child home with a better relationship with dentistry than they arrived with. One short parent quote as proof.

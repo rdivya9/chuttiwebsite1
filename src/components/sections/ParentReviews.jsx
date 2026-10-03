@@ -82,7 +82,7 @@ export default function ParentReviews() {
               <span className="font-semibold">{siteConfig.rating.value}★</span>
               <span>·</span>
               <span className="underline underline-offset-2">
-                {siteConfig.rating.count} Google reviews
+                Google reviews
               </span>
             </a>
           </div>

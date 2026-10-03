@@ -119,7 +119,7 @@ export default function Footer() {
                 ))}
               </span>
               <span>
-                {siteConfig.rating.value} · {siteConfig.rating.count} Google reviews
+                {siteConfig.rating.value}★ · Google reviews
               </span>
             </a>
           </div>

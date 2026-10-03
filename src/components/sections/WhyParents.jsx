@@ -55,7 +55,7 @@ const facts = [
   },
   {
     icon:       Star,
-    title:      `${siteConfig.rating.value}★ from ${siteConfig.rating.count} Google reviews.`,
+    title:      `${siteConfig.rating.value}★ on Google reviews.`,
     body:       `${siteConfig.hours.display}. By appointment.`,
     cardBg:     'bg-sun-yellow/40',
     iconBg:     'bg-brand-navy/10',

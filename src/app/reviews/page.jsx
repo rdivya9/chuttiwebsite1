@@ -8,7 +8,7 @@ import siteConfig from '@/data/siteConfig';
 
 export const metadata = {
   title: 'Parent Reviews',
-  description: `${siteConfig.rating.value}★ from ${siteConfig.rating.count} Google reviews. Read what parents say about Chutti's Dental & Wellness Center in Pallikaranai, Chennai.`,
+  description: `${siteConfig.rating.value}★ on Google reviews. Read what parents say about Chutti's Dental & Wellness Center in Pallikaranai, Chennai.`,
 };
 
 function StarRow({ count = 5 }) {
@@ -30,7 +30,7 @@ export default function ReviewsPage() {
       <PageHeaderScene
         breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Reviews' }]}
         title="What parents say"
-        intro={`${siteConfig.rating.value}★ from ${siteConfig.rating.count} Google reviews — every one of them five stars.`}
+        intro={`${siteConfig.rating.value}★ on Google — every review five stars.`}
         illustration="reviews-sunbird"
         tint="morning-white"
       />
@@ -51,7 +51,7 @@ export default function ReviewsPage() {
             </span>
             <span className="font-body font-semibold text-brand-navy">{siteConfig.rating.value}★</span>
             <span className="font-body text-[14px] text-brand-navy/60 underline underline-offset-2">
-              {siteConfig.rating.count} reviews on Google
+              See reviews on Google
             </span>
           </a>
 

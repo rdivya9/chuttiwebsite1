@@ -149,7 +149,7 @@ function HeroContentCard({ openBooking }) {
       <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 mb-4">
         <span className="flex items-center gap-1 font-body text-[13px] text-brand-navy/60">
           <Star size={12} className="fill-sun-yellow text-sun-yellow" aria-hidden="true" />
-          {siteConfig.rating.value} · {siteConfig.rating.count} Google reviews
+          {siteConfig.rating.value}★ · Google reviews
         </span>
         <span className="font-body text-[13px] text-brand-navy/60">{siteConfig.hours.display}</span>
       </div>
